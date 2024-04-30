@@ -6,7 +6,7 @@ import './styles/style.scss';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider >
+    <Provider store={store}>
       <AppRouter />
     </Provider>
   </React.StrictMode>
