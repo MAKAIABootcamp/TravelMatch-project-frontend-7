@@ -21,7 +21,7 @@ function AppRouter() {
           <Route path="Home" element={<Home />}/> 
           <Route path="Blog/:id" element={<Blog />} />
           <Route path="Destinos/:id" element={<Destinos />} />
-          <Route path="Test/:id" element={<Test />} />
+          <Route path="Test" element={<Test />} />
           <Route path="Contacto" element={<Contacto />} />
         </Route>
       </Routes>
