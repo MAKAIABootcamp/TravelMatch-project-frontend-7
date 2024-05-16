@@ -1,20 +1,37 @@
-// ButtonTest.scss
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300..900&display=swap');
+
+:root {
+  --tipografia: 'Sansita Swashed', system-ui;
+}
 
 .custom-button {
-    padding: 12px 24px; // Ajusta el tamaño del botón aumentando el padding
+    padding: 12px 24px; 
     background-color: #2ab7e6;
     color: #f1eded;
-    border: none; // Elimina el borde del botón
     border-radius: 8px;
     cursor: pointer; 
     font-style: italic; 
+    font-size: 20px;
+    font-weight: bold;
+    
+
   
     &:hover {
-      opacity: 0.8; // Reduce la opacidad al pasar el cursor sobre el botón
+      opacity: 0.8; 
     }
   
     &:focus {
-      outline: none; // Elimina el contorno al enfocar el botón
+      outline: none; 
     }
+    }
+
+    .container-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
   }
+
+
   

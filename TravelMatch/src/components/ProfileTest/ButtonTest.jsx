@@ -1,10 +1,11 @@
 import React from 'react';
-import './ButtonTest';
 import './ButtonTest.scss';
 
  const ButtonTest = ({test, onClick}) => {
   return (
-    <button onClick={onClick}>{test}
+  
+
+    <button className='custom-button' onClick={onClick}>{test}
     
     </button>
 

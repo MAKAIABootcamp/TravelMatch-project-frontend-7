@@ -5,15 +5,16 @@ import ButtonTest from "../../components/ProfileTest/ButtonTest";
 import fondo from "../../assets/fondoTest.jpeg";
 import SquareTest from "../../components/ProfileTest/SquareTest";
 
+
 function Test() {
  
   const cardItems = [
-    { id: 1, pregunta1: "kkkk", precio: 10 },
-    { id: 2, nombre: "Producto 2", precio: 10 },
-    { id: 3, nombre: "Producto 3", precio: 10 },
-    { id: 4, nombre: "Producto 4", precio: 10, 
+    { id: 1, nombre: "¿Qué clima prefieres?", precio: 10 },
+    // { id: 2, nombre: "Clima tropical húmedo", precio: 10 },
+    // { id: 3, nombre: "Clima de montaña", precio: 10 },
+    { id: 4, nombre: "Clima de páramo", precio: 10, 
     description: [
-      { id: 1, nombre: "mmmmmm", precio: 10 },
+      { id: 1, nombre: "Clima tropical húmedo", precio: 10 },
       { id: 2, nombre: "Producto 2", precio: 20 },
       { id: 3, nombre: "Producto 3", precio: 30 },
       { id: 4, nombre: "Producto 4", precio: 50 },
@@ -40,6 +41,7 @@ function Test() {
                    
           />
         ))}
+
         <ButtonTest test="Siguiente" />
       </div>
     </div>
