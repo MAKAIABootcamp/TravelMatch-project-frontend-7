@@ -1,16 +1,12 @@
-import React from 'react';
-import './ButtonTest.scss';
+import React from "react";
+import "./ButtonTest.scss";
 
- const ButtonTest = ({test, onClick}) => {
+const ButtonTest = ({ test, onClick }) => {
   return (
-  
-
-    <button className='custom-button' onClick={onClick}>{test}
-    
+    <button className="custom-button" onClick={onClick}>
+      {test}
     </button>
-
-  )
-}
+  );
+};
 
 export default ButtonTest;
-
