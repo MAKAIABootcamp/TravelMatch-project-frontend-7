@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+
+:root {
+    --tipografia-title: 'Montserrat', sans-serif;
+    --tipografia-title2: 'Sansita Swashed', system-ui;
+    --tipografia-title3: 'Roboto', sans-serif;
+    --tipografia-text: 'Manrope', sans-serif;
+    --primary-color: #07878F;
+}
+
+.footer {
+    padding: 20px;
+    height: 14vh;
+    font-family: var(--tipografia-title2);
+    background-color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.footer_contenido {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 18px;
+}
+
+.footer_menu {
+    display: flex;
+    font-family: var(--tipografia-text);
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.footer_menu li {
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.mallama {
+    margin-top: 40px;
+    font-family: var(--tipografia-text);
+    font-weight: normal;
+    font-size: 10px;
+}
+
+@media (max-width: 900px) {
+    .contenido_body {
+        margin: 80px;
+        padding: auto;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .footer {
+        padding: 8px;
+        padding-top: 2px;
+        height: 18vh;
+        font-size: 15px;
+    }
+
+    .footer_menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer_menu li {
+        margin-left: 10px;
+        font-size: 10px;
+    }
+
+    .mallama {
+        margin-top: 10px;
+        font-size: 5px;
+    }
+    
+}
