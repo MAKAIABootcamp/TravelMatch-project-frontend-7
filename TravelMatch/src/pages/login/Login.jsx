@@ -3,9 +3,8 @@ import "../login/login.scss"
 import useForm from "../../hooks/useForm";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { AppContext } from "../../router/AppRouter";
-import HeaderDos from "../../components/headerDos"
-import Footer from "../../components/footer"
+import HeaderDos from "../../components/header/headerDos"
+import Footer from "../../components/Footer/Footer"
 
 
 const StyledForm = styled.form`

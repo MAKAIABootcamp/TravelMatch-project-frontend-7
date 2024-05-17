@@ -11,9 +11,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <AppRouter/>
   </React.StrictMode>,
 );
-
-/*  <React.StrictMode>
-<Provider store={store}>
-<AppRouter />
-</Provider>
-</React.StrictMode>*/

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import Carro from "../assets/iconoCarro.png";
+import Carro from "../../assets/iconoCarro.png";
+import "../header/header.scss"
 
 export default function headerDos() {
     return (

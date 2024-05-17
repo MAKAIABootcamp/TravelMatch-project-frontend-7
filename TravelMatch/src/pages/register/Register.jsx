@@ -3,8 +3,8 @@ import { ErrorMessage, useFormik } from "formik";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import styled from "styled-components";
-import HeaderDos from "../../components/headerDos"
-import Footer from "../../components/footer"
+import HeaderDos from "../../components/header/headerDos"
+import Footer from "../../components/Footer/Footer"
 
 const passwordRegex =
     /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])\S{3,16}$/;
