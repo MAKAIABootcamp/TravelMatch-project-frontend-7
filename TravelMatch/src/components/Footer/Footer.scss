@@ -1,0 +1,75 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #188F97;
+    color: white;
+    padding: 10px 20px; // Menos padding en la parte superior e inferior, más en los lados
+    flex-wrap: wrap;
+  
+    .footer-title {
+      font-size: 1.5em;
+      margin-left: 70px; 
+    }
+  
+    .footer-nav {
+      display: flex;
+      gap: 20px;
+      flex: 1; // Permite que los enlaces ocupen el espacio disponible
+      justify-content: center; 
+  
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1em;
+        cursor: pointer; // Cambia el puntero a una mano
+        transition: color 0.3s; // Transición suave para el cambio de color
+  
+        &:hover {
+          color: #FFD700; // Cambia el color de la letra al pasar el cursor
+        }
+      }
+    }
+  
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-right: 20px; // Agrega un margen derecho para separar los iconos del borde
+  
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+        cursor: pointer; // Cambia el puntero a una mano
+        transition: color 0.3s; // Transición suave para el cambio de color
+  
+        &:hover {
+          color: #FFD700; // Cambia el color de la letra al pasar el cursor
+        }
+      }
+    }
+  }
+  
+  // Media query 
+  @media (max-width: 600px) {
+    .footer {
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center; 
+  
+      .footer-title {
+        margin-left: 0; 
+        margin-bottom: 10px; 
+  
+      .footer-nav {
+        flex-direction: column; 
+        gap: 10px; 
+        margin-bottom: 10px; // Agrega un margen inferior para separar los enlaces de los iconos sociales
+      }
+  
+      .social-icons {
+        margin-right: 0; // Elimina el margen derecho en pantallas pequeñas
+      }
+    }
+  }
+}
