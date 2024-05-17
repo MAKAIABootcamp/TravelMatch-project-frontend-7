@@ -1,11 +1,11 @@
 import React from "react";
-import ButtonTest from './ButtonTest';
-import './SquareTest.scss';
+import ButtonTest from "./ButtonTest";
+import "./SquareTest.scss";
 
-const SquareTest = ({ title, option }) => {
+const SquareTest = ({ title, option, onClick }) => {
   const respuestas = Object.entries(option);
   return (
-    <div className = 'askBox'>
+    <div className="askBox">
       <h2>{title}</h2>
       <section>
         {respuestas.map((item, index) => (
@@ -15,7 +15,7 @@ const SquareTest = ({ title, option }) => {
           </label>
         ))}
       </section>
-      <ButtonTest test="Siguiente" />
+      <ButtonTest test="Siguiente" onClick={onClick} />
     </div>
   );
 };
