@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import Login from "../pages/Login/Login";
-import Register from "../pages/Register/Register";
+import Login from "../pages/login/Login";
+import Register from "../pages/register/Register";
 import Home from "../pages/home/Home";
 import Blog from "../pages/Blog/Blog";
 import Destinos from "../pages/Destinos/Destinos";
@@ -15,10 +15,9 @@ function AppRouter() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="register" element={<Register />} />
-
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="Home" element={<Home />}/> 
+          <Route path="Home" element={<Home />} />
           <Route path="Blog/:id" element={<Blog />} />
           <Route path="Destinos/:id" element={<Destinos />} />
           <Route path="Test" element={<Test />} />
