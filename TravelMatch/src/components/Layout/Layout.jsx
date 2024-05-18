@@ -8,7 +8,7 @@ function Layout() {
     <>
      
       <Outlet />
-
+      <Footer />
     </>
   );
 }
