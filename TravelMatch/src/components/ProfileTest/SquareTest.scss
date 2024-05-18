@@ -1,6 +1,5 @@
 .askBox {
-  width: 50%;
-  height: 50vh;
+  // height: 50vh;
   color: #fff;
   font-size: 25px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -11,8 +10,11 @@
   padding: 1rem;
   border-radius: 10px;
   gap: 10px;
-
-  section{
+  margin-left: 25%;
+  overflow: hidden;
+  margin-right: 25%;
+  margin-top: 6%;
+  section {
     display: flex;
     flex-direction: column;
     gap: 5px;

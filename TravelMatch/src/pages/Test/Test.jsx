@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import ButtonTest from "../../components/ProfileTest/ButtonTest";
 import fondo from "../../assets/fondoTest.jpeg";
 import SquareTest from "../../components/ProfileTest/SquareTest";
-import Slider from "react-slick";
 import "./test.scss";
+import Slider from "react-slick";
 
 const settings = {
   dots: true,
@@ -115,7 +115,7 @@ function Test() {
   };
 
   return (
-    <div className="center-slider">
+    // <div className="center-slider">
       <Slider
         ref={(slider) => {
           sliderRef = slider;
@@ -132,7 +132,7 @@ function Test() {
           />
         ))}
       </Slider>
-    </div>
+    // </div>
   );
 }
 
