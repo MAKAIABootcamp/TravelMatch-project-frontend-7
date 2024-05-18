@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import ButtonTest from "../../components/ProfileTest/ButtonTest";
-//import fondo from "../../assets/fondoTest.jpeg";
+import fondo from "../../assets/fondoTest.jpeg";
 import SquareTest from "../../components/ProfileTest/SquareTest";
 import Slider from "react-slick";
 import "./test.scss";
