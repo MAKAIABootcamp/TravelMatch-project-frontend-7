@@ -19,7 +19,8 @@ function AppRouter() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="Home" element={<Home />}/> 
-          <Route path="Blog/:id" element={<Blog />} />
+          {/* <Route path="Blog/:id" element={<Blog />} /> */}
+          <Route path="Blog" element={<Blog />} />
           <Route path="Destinos/:id" element={<Destinos />} />
           <Route path="Test/:id" element={<Test />} />
           <Route path="Contacto" element={<Contacto />} />
