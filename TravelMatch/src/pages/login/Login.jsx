@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "../login/login.scss"
+import "./login.scss"
 import useForm from "../../hooks/useForm";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
