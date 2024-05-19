@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import React from 'react';
-import "../home/home.scss";
+import "../Home/home.scss";
 import Arvi from "../../assets/Arvi.jpg"
 import Guatape from "../../assets/Guatape.jpg"
 import Jardin from "../../assets/Jardin.jpg"
 import Header from "../../components/header/header"
 import Footer from "../../components/Footer/Footer"
+import { useSelector, useDispatch } from "react-redux";
+import { actionLogout } from "../../redux/userAuth/userAuthActions";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
     const img = [Arvi, Guatape, Jardin];
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -23,6 +27,7 @@ const Home = () => {
 
     return (
         <>
+        <button onClick={() => dispatch(actionLogout())}><Link to={"/login"}><li>Cerrar  Sesioon</li></Link></button>
             <div className="background" style={{ backgroundImage: `url(${img[currentIndex]})` }}>
 
             <Header />
