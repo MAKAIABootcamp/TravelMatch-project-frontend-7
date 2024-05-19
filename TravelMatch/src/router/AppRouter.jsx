@@ -1,29 +1,67 @@
+import React, { useCallback, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home";
+import HomeUser from "../pages/Home/HomeUser";
 import Blog from "../pages/Blog/Blog";
 import Destinos from "../pages/Destinos/Destinos";
 import Test from "../pages/Test/Test";
 import Contacto from "../pages/Contacto/Contacto";
 import Layout from "../components/Layout/Layout";
-import Reseñas from "../pages/Reseñas/Reseñas";
+import PrivateRoutes from "./PublicRoutes";
+import PublicRoutes from "./PrivateRoutes";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Firebase/firebaseconfig";
+import { loginRequest, loginSuccess } from "../redux/userAuth/userAuthSlice";
+import Cargando from "../components/Cargando/Cargando";
 
 function AppRouter() {
+  const { user } = useSelector((store) => store.userAuth);
+  const dispatch = useDispatch();
+  // const location = useLocation();
+  // const navigate = useNavigate();
+
+  useEffect(() => {
+    //const storeRoute = JSON.parse(sessionStorage.getItem("currentRoute"));
+    dispatch(loginRequest)
+    onAuthStateChanged(auth, (userCredential) => {
+      if (userCredential && !user) {
+        dispatch(
+          loginSuccess({
+            id: userCredential.uid,
+            name: userCredential.displayName,
+            photo: userCredential.photoURL,
+            accessToken: userCredential.accessToken,
+          }))
+      }
+    });
+  }, [user, dispatch]);
+  
+  //if(isLoading) return <Cargando/>
+
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+
+
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="Home" element={<Home />} />
-          <Route path="Blog/:id" element={<Blog />} />
-          <Route path="Destinos/:id" element={<Destinos />} />
-          <Route path="Test/:id" element={<Test />} />
-          <Route path="Contacto" element={<Contacto />} />
-          <Route path="Reseñas" element={<Reseñas />} />
+          <Route element={<PrivateRoutes />}>
+           <Route path="HomeUser" element={<HomeUser />} />
+            <Route path="Blog/:id" element={<Blog />} />
+            <Route path="Destinos/:id" element={<Destinos />} />
+            <Route path="Test/:id" element={<Test />} />
+            <Route path="Contacto" element={<Contacto />} />
+          </Route>
+          <Route element={<PublicRoutes />}>
+            <Route path="Home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+
         </Route>
       </Routes>
     </BrowserRouter>
