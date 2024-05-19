@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home";
-import HomeUser from "../pages/Home/HomeUser";
 import Blog from "../pages/Blog/Blog";
 import Destinos from "../pages/Destinos/Destinos";
 import Test from "../pages/Test/Test";
@@ -50,7 +49,7 @@ function AppRouter() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route element={<PrivateRoutes />}>
-           <Route path="HomeUser" element={<HomeUser />} />
+        
             <Route path="Blog/:id" element={<Blog />} />
             <Route path="Destinos/:id" element={<Destinos />} />
             <Route path="Test/:id" element={<Test />} />

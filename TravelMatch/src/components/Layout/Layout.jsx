@@ -12,7 +12,7 @@ function Layout() {
   return (
     <>
   
-      {!hideHeaderRoutes.includes(location.pathname) && <Header />}
+      {/* {!hideHeaderRoutes.includes(location.pathname) && <Header />} */}
       <Outlet />
       {!hideFooterRoutes.includes(location.pathname) && <Footer />}
     </>

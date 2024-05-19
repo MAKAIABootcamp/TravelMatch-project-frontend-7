@@ -114,7 +114,7 @@ const Register = ({ }) => {
 
     return (
         <>
-            <HeaderDos />
+        
             <main className="register">
                 <figure className="register__image">
                     <img src={image} alt="avatar" />
@@ -195,7 +195,7 @@ const Register = ({ }) => {
                     <button type="submit">Registrarse</button>
                 </form>
             </main>
-            <Footer />
+        
 
         </>
     )

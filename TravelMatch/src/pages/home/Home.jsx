@@ -11,19 +11,19 @@ import { actionLogout } from "../../redux/userAuth/userAuthActions";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const img = [Arvi, Guatape, Jardin];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+    const img = [Arvi, Guatape, Jardin];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((current) => (current + 1) % img.length); // Cambia 'images' por 'img'
-    }, 10000);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const dispatch = useDispatch();
 
-    return () => clearInterval(interval);
-  }, []);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(current => (current + 1) % img.length); // Cambia 'images' por 'img'
+        }, 10000);
 
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <>
