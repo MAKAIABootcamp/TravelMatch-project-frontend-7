@@ -43,6 +43,12 @@ function Header() {
         >
           Contacto
         </NavLink>
+        <NavLink
+          to="/Reseñas"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Reseñas
+        </NavLink>
       </nav>
       <div className="btn-container">
         <NavLink to="/register" className="btn-register">

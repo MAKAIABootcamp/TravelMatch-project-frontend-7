@@ -8,6 +8,7 @@ import Destinos from "../pages/Destinos/Destinos";
 import Test from "../pages/Test/Test";
 import Contacto from "../pages/Contacto/Contacto";
 import Layout from "../components/Layout/Layout";
+import Reseñas from "../pages/Reseñas/Reseñas";
 
 function AppRouter() {
   return (
@@ -22,6 +23,7 @@ function AppRouter() {
           <Route path="Destinos/:id" element={<Destinos />} />
           <Route path="Test/:id" element={<Test />} />
           <Route path="Contacto" element={<Contacto />} />
+          <Route path="Reseñas" element={<Reseñas />} />
         </Route>
       </Routes>
     </BrowserRouter>
