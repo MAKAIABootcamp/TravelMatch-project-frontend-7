@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import "../home/home.scss";
+import "./home.scss";
 import Arvi from "../../assets/Arvi.jpg";
 import Guatape from "../../assets/Guatape.jpg";
 import Jardin from "../../assets/Jardin.jpg";

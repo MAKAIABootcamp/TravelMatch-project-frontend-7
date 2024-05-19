@@ -11,6 +11,7 @@ function Layout() {
   const hideHeaderRoutes = ["/"]; // Añade aquí las rutas donde quieres ocultar el header
   return (
     <>
+  
       {!hideHeaderRoutes.includes(location.pathname) && <Header />}
       <Outlet />
       {!hideFooterRoutes.includes(location.pathname) && <Footer />}
