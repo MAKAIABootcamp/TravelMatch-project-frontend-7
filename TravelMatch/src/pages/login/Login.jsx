@@ -5,8 +5,7 @@ import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
-import HeaderDos from "../../components/header/headerDos"
-import Footer from "../../components/Footer/Footer"
+
 import imageUser from "../../assets/user_747376.png";
 import imageEmail from "../../assets/email_1159936.png";
 import imagePassword from "../../assets/lock_8472244.png";

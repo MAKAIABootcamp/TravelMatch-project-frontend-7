@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-import HeaderDos from "../../components/header/headerDos"
+
 import Footer from "../../components/Footer/Footer"
 import imagePhoto from "../../assets/photo-camera_711191.png";
 import imageUser from "../../assets/user_709618.png";

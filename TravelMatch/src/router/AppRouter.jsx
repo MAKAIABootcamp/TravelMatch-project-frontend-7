@@ -33,31 +33,35 @@ function AppRouter() {
             name: userCredential.displayName,
             photo: userCredential.photoURL,
             accessToken: userCredential.accessToken,
-            email: userCredential.email
           }))
       }
     });
   }, [user, dispatch]);
-  
+
   //if(isLoading) return <Cargando/>
 
-  console.log(user);
+
   return (
     <BrowserRouter>
       <Routes>
+
+
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route element={<PrivateRoutes />}>      
+          <Route path="Contacto" element={<Contacto />} />
+          <Route path="Destinos" element={<Destinos />} />
+          <Route element={<PrivateRoutes />}>
+
             <Route path="Blog/:id" element={<Blog />} />
-            <Route path="Destinos/:id" element={<Destinos />} />
             <Route path="Test/:id" element={<Test />} />
-            <Route path="Contacto" element={<Contacto />} />
+            <Route path="Home" element={<Home />} />
           </Route>
           <Route element={<PublicRoutes />}>
             <Route path="Home" element={<Home />} />
-            <Route path="login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
+
         </Route>
       </Routes>
     </BrowserRouter>
