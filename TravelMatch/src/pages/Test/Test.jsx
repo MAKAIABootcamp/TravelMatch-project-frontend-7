@@ -53,6 +53,7 @@ const preguntas = [
       b: "Montaña",
       c: "Ciudad",
       d: "Campo",
+      e: "Pueblito",
     },
   },
   {
@@ -95,7 +96,7 @@ const preguntas = [
   },
   {
     id: 8,
-    title: "¿Qué tipos de emociones te gustaria experimentar?",
+    title: "¿Qué tipos de emociones te gustaría experimentar?",
     respuestas: {
       a: "Asombro",
       b: "Gratitud",
