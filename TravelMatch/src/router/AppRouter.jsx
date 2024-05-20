@@ -33,6 +33,7 @@ function AppRouter() {
             name: userCredential.displayName,
             photo: userCredential.photoURL,
             accessToken: userCredential.accessToken,
+            email: userCredential.email
           }))
       }
     });
@@ -40,16 +41,13 @@ function AppRouter() {
   
   //if(isLoading) return <Cargando/>
 
-
+  console.log(user);
   return (
     <BrowserRouter>
       <Routes>
-
-
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route element={<PrivateRoutes />}>
-        
+          <Route element={<PrivateRoutes />}>      
             <Route path="Blog/:id" element={<Blog />} />
             <Route path="Destinos/:id" element={<Destinos />} />
             <Route path="Test/:id" element={<Test />} />
@@ -57,10 +55,9 @@ function AppRouter() {
           </Route>
           <Route element={<PublicRoutes />}>
             <Route path="Home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
-
         </Route>
       </Routes>
     </BrowserRouter>

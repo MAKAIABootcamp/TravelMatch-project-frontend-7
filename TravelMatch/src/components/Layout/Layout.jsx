@@ -2,19 +2,22 @@
 
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Header from "../header/HeaderPages/Header";
+import NavigationBar from "../header/header";
 import Footer from "../Footer/Footer";
+
 
 function Layout() {
   const location = useLocation();
-  const hideFooterRoutes = ["/Contacto"]; // Añade aquí las rutas donde quieres ocultar el footer
+  const hideFooterRoutes = ["/Contacto", "/register"]; // Añade aquí las rutas donde quieres ocultar el footer
   const hideHeaderRoutes = ["/"]; // Añade aquí las rutas donde quieres ocultar el header
   return (
     <>
-  
-      {!hideHeaderRoutes.includes(location.pathname) && <Header />} 
+      <NavigationBar/>
+      <Outlet/>
+      <Footer/>
+      {/* {!hideHeaderRoutes.includes(location.pathname) && <header />} 
       <Outlet />
-      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
+      {!hideFooterRoutes.includes(location.pathname) && <Footer />} */}
     </>
   );
 }
