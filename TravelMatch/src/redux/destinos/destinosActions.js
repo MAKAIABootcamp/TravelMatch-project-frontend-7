@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import { destinosRequest, destinosFail, fillDestinos } from "./destinosSlice";
+import { destinosRequest, destinosFail, fillDestinos, destinoById } from "./destinosSlice";
 import { dataBase } from "../../firebase/firebaseconfig";
 
 const COLLECTION_NAME = "destinos"; //Nombre de la colección
@@ -24,3 +24,19 @@ export const actionGetDestinos = () => {
         }
     }
 }
+export const actionGetDestinoById = (destinoId) => {
+    return async (dispatch) => {
+        dispatch(destinosRequest());
+        try {
+            const destinoDoc = await getDocs(doc(collectionRef, destinoId));
+            if (destinoDoc.exists()) {
+                dispatch(destinoById([{ id: destinoDoc.id, ...destinoDoc.data() }]));
+            } else {
+                dispatch(destinosFail("Destino no encontrado"));
+            }
+        } catch (error) {
+            console.error(error);
+            dispatch(destinosFail(error.message));
+        }
+    };
+};

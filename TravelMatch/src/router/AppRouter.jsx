@@ -6,6 +6,7 @@ import Home from "../pages/home/Home";
 import Blog from "../pages/Blog/Blog";
 import Destinos from "../pages/Destinos/Destinos";
 import Test from "../pages/Test/Test";
+import Detalle from "../pages/Detalle/Detalle"
 import Contacto from "../pages/Contacto/Contacto";
 import Layout from "../components/Layout/Layout";
 
@@ -21,7 +22,9 @@ function AppRouter() {
           <Route path="Home" element={<Home />}/> 
           {/* <Route path="Blog/:id" element={<Blog />} /> */}
           <Route path="Blog" element={<Blog />} />
-          <Route path="Destinos/:id" element={<Destinos />} />
+          <Route path="Detalle" element={<Detalle />} />
+          {/* <Route path="Destinos/:id" element={<Destinos />} /> */}
+          <Route path="Destinos" element={<Destinos />} />
           <Route path="Test/:id" element={<Test />} />
           <Route path="Contacto" element={<Contacto />} />
         </Route>
