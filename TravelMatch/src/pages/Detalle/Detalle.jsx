@@ -1,20 +1,45 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionGetDestinoById } from "../../redux/destinos/destinosActions";
 import "../Detalle/detalle.scss"
+import ReactDOM from 'react-dom';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Vector from "../../assets/more_than.png"
+import jardin from "../../assets/Jardin.jpg"
+import { useEffect } from "react";
 
 function Detalle() {
-    const idDestino = 1;
-    const dispatch = useDispatch();
-    dispatch(actionGetDestinoById(idDestino));
+    // const id = '2'; // Reemplaza con el ID de destino real
+    // const dispatch = useDispatch();
+    // const { destinos, loadingDestinos, errorDestinos } = useSelector((state) => state.destinos);
+  
+    // useEffect(() => {
+    //   dispatch(actionGetDestinoById(id));
+    // }, [dispatch, id]);
+  
+    // if (loadingDestinos) return <p>Cargando...</p>;
+    // if (errorDestinos) return <p>Error: {errorDestinos}</p>;
+  
+    // const destino = destinos.find(d => d.idDestino === id);
+    // const images = destino ? destino.images : [];
+    // const cards = destino ? destino.cards : [];
 
+    const settings = {
+        dots: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 1000,
+    };
 
 
     return (
         <>
             <section className="section_detalle">
-                <h2 className='title'>Bienvenido al Pueblito Jardín</h2>
+                <h2 className='title'>Bienvenido a Pueblito Jardín</h2>
                 {/* --------------------- */}
                 {/* <section>
           {
@@ -24,13 +49,26 @@ function Detalle() {
                 {/* ---------------------- */}
                 <div className="container">
                     <div className="container_blog">
+                        <div className="container_present">
+                            < Slider {...settings}>
+                                < div >
+                                    < img src={jardin} />
+                                </div >
+                                < div >
+                                    < img src={jardin} />
+                                </ div >
+                                < div >
+                                    < img src={jardin} />
+                                </ div >
+                            </ Slider >
+                        </div>
                         <p className="text">¡Jardín, Antioquia es un lugar encantador para visitar en Colombia! Este pueblo pintoresco está ubicado en el suroeste de Antioquia, en una región montañosa que ofrece paisajes impresionantes, una rica historia cultural y una atmósfera tranquila y acogedora. </p>
                         <div>
                             <span className="text">Aquí tienes algunas cosas que podrías disfrutar al visitar Jardín:</span>
                             <div className="grid">
                                 <div className="card">
                                     <span className="icon">
-                                        <svg enable-background="new 0 0 32 32" id="Editable-line" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="  M27,29H5V17H3.235c-1.138,0-1.669-1.419-0.812-2.168L14.131,3.745c1.048-0.993,2.689-0.993,3.737,0l11.707,11.087  C30.433,15.58,29.902,17,28.763,17H27V29z" fill="none" id="XMLID_1_" stroke="#000000" strokeLinecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" /><path d="  M20,29h-8v-6c0-2.209,1.791-4,4-4h0c2.209,0,4,1.791,4,4V29z" fill="none" id="XMLID_2_" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" /></svg>
+                                        <svg enableBackground="new 0 0 32 32" id="Editable-line" version="1.1" viewBox="0 0 32 32" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><path d="  M27,29H5V17H3.235c-1.138,0-1.669-1.419-0.812-2.168L14.131,3.745c1.048-0.993,2.689-0.993,3.737,0l11.707,11.087  C30.433,15.58,29.902,17,28.763,17H27V29z" fill="none" id="XMLID_1_" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" /><path d="  M20,29h-8v-6c0-2.209,1.791-4,4-4h0c2.209,0,4,1.791,4,4V29z" fill="none" id="XMLID_2_" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" /></svg>
                                     </span>
                                     <h4>Arquitectura colonial</h4>
                                     <p>
@@ -38,8 +76,8 @@ function Detalle() {
                                     </p>
 
                                 </div>
-                                <div class="card">
-                                    <span class="icon">
+                                <div className="card">
+                                    <span className="icon">
                                         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title /><g data-name="Layer 21" id="Layer_21"><path d="M59,61V51h1a1,1,0,0,0,1-1V46a1,1,0,0,0-1-1H36V41h4a1,1,0,0,0,.71-.29L44.41,37H46a1,1,0,0,0,1-1V32a1,1,0,0,0-1-1H35V27h2a1,1,0,0,0,.71-.29L41.41,23H43a1,1,0,0,0,1-1V18a1,1,0,0,0-1-1H36.89A4.79,4.79,0,0,0,37,16a5,5,0,0,0-4-4.9V9.5a6.5,6.5,0,0,1,13,0V24h2V9.5a8.5,8.5,0,0,0-16-4,8.5,8.5,0,0,0-16,4V24h2V9.5a6.5,6.5,0,0,1,13,0v1.6A5,5,0,0,0,27,16a4.79,4.79,0,0,0,.11,1H21a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1h1.59l3.7,3.71A1,1,0,0,0,27,27h2v4H18a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1h1.59l3.7,3.71A1,1,0,0,0,24,41h4v4H4a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H5V61H1v2H63V61ZM29,16a3,3,0,0,1,6,0,3.06,3.06,0,0,1-.19,1H29.19A3.06,3.06,0,0,1,29,16Zm-7,3H42v2H22Zm3.41,4H38.59l-2,2H27.41ZM31,27h2v4H31ZM19,33H45v2H19Zm3.41,4H41.59l-2,2H24.41ZM30,41h4v4H30ZM5,47H59v2H5Zm2,4H57V61H7Z" /><rect height="2" width="2" x="46" y="26" /><rect height="4" width="2" x="16" y="26" /></g></svg>
                                     </span>
                                     <h4>Plaza principal</h4>
@@ -47,15 +85,15 @@ function Detalle() {
                                         La Plaza Principal de Jardín es el corazón del pueblo, rodeada de hermosas construcciones coloniales. Es un lugar perfecto para sentarse, relajarse y disfrutar de la atmósfera tranquila del pueblo.
                                     </p>
                                 </div>
-                                <div class="card">
-                                    <span class="icon">
+                                <div className="card">
+                                    <span className="icon">
                                         <svg
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
-                                            stroke-width="1.2"
+                                            strokeWidth="1.2"
                                             strokeLinecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinejoin="round"
                                             xmlns="http://www.w3.org/2000/svg"
                                         >
                                             <path
@@ -75,15 +113,15 @@ function Detalle() {
                                         Esta impresionante iglesia de estilo neogótico es una visita obligada en Jardín. Su imponente arquitectura y sus vitrales coloridos son impresionantes.
                                     </p>
                                 </div>
-                                <div class="card">
-                                    <span class="icon">
+                                <div className="card">
+                                    <span className="icon">
                                         <svg
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
-                                            stroke-width="1.2"
+                                            strokeWidth="1.2"
                                             strokeLinecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinejoin="round"
                                             xmlns="http://www.w3.org/2000/svg"
                                         >
                                             <path
@@ -104,15 +142,15 @@ function Detalle() {
                                     </p>
                                 </div>
 
-                                <div class="card">
-                                    <span class="icon">
+                                <div className="card">
+                                    <span className="icon">
                                         <svg
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
-                                            stroke-width="1.2"
+                                            strokeWidth="1.2"
                                             strokeLinecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinejoin="round"
                                             xmlns="http://www.w3.org/2000/svg"
                                         >
                                             <path
@@ -138,9 +176,9 @@ function Detalle() {
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
-                                            stroke-width="1.2"
+                                            strokeWidth="1.2"
                                             strokeLinecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinejoin="round"
                                             xmlns="http://www.w3.org/2000/svg"
                                         >
                                             <path
