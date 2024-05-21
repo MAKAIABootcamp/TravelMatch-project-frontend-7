@@ -6,7 +6,7 @@ import Facebook from "../../assets/icono_facebook.png";
 import Linkedin from "../../assets/icono_linkedin.png";
 import Youtube from "../../assets/icono_youtube.png";
 
-export default function footer() {
+export default function Footer() {
     return (
         <>
             <div className="footer">

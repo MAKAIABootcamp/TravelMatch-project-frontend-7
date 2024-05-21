@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Arvi from "../../assets/Arvi.jpg"
 import Guatape from "../../assets/Guatape.jpg"
 import Jardin from "../../assets/Jardin.jpg"
-import "../Home/home.scss";
+import "./home.scss";
 
 const img = [Arvi, Guatape, Jardin];
 

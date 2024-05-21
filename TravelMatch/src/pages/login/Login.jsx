@@ -1,5 +1,5 @@
 import React from "react";
-import "../Login/login.scss"
+import "./login.scss"
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";

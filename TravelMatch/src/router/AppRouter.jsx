@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home";
 import Blog from "../pages/Blog/Blog";
 import Destinos from "../pages/Destinos/Destinos";
 import Test from "../pages/Test/Test";
+import Detalle from "../pages/Detalle/Detalle"
 import Contacto from "../pages/Contacto/Contacto";
 import Layout from "../components/Layout/Layout";
 import PrivateRoutes from "./PublicRoutes";
@@ -50,6 +51,7 @@ function AppRouter() {
           <Route index element={<Home />} />
           <Route path="Contacto" element={<Contacto />} />
           <Route path="Destinos" element={<Destinos />} />
+          <Route path="Detalle" element={<Detalle />} />
           <Route element={<PrivateRoutes />}>
 
             <Route path="Blog/:id" element={<Blog />} />
