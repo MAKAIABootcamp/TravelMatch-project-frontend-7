@@ -24,6 +24,7 @@ const preguntas = [
       c: "Clima de páramo",
       d: "Clima tropical de sabana",
     },
+    type: "radio",
   },
   {
     id: 2,
@@ -34,6 +35,7 @@ const preguntas = [
       c: "Cultura",
       d: "Deporte",
     },
+    type: "radio",
   },
   {
     id: 3,
@@ -44,6 +46,7 @@ const preguntas = [
       c: "Con familia",
       d: "Con amigos",
     },
+    type: "checkbox",
   },
   {
     id: 4,
@@ -55,6 +58,7 @@ const preguntas = [
       d: "Campo",
       e: "Pueblito",
     },
+    type: "radio",
   },
   {
     id: 5,
@@ -67,6 +71,7 @@ const preguntas = [
       e: "Historia",
       f: "Cultura",
     },
+    type: "checkbox",
   },
   {
     id: 6,
@@ -83,6 +88,7 @@ const preguntas = [
       i: "Ruta en cuatrimoto",
       j: "Escalar al aire libre",
     },
+    type: "checkbox",
   },
   {
     id: 7,
@@ -93,6 +99,7 @@ const preguntas = [
       c: "Alto",
       d: "Extremo",
     },
+    type: "radio",
   },
   {
     id: 8,
@@ -105,6 +112,7 @@ const preguntas = [
       e: "Emoción",
       f: "Pertenencia",
     },
+    type: "radio",
   },
 ];
 
@@ -124,11 +132,14 @@ function Test() {
         {...settings}
         className="profile-test-container"
       >
-        {preguntas.map((item) => (
+        {preguntas.map((item,index) => (
           <SquareTest
             key={item.id}
             title={item.title}
             option={item.respuestas}
+            currentIndex={index +1} 
+            TotalPreguntas={preguntas.length}
+            type={item.type}
             onClick={botonSiguiente}
           />
         ))}
