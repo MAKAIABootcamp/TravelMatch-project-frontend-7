@@ -6,7 +6,7 @@ import {
     updateProfile,
   } from "firebase/auth";
   import { loginFail, loginRequest, loginSuccess, logout } from "./userAuthSlice";
-  import { auth } from "../../Firebase/firebaseconfig";
+  import { auth } from "../../firebase/firebaseconfig";
   
   export const actionRegisterWithEmailAndPassword = ({
     email,

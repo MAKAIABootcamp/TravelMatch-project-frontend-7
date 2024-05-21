@@ -12,7 +12,7 @@ import Layout from "../components/Layout/Layout";
 import PrivateRoutes from "./PublicRoutes";
 import PublicRoutes from "./PrivateRoutes";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../Firebase/firebaseconfig";
+import { auth } from "../firebase/firebaseconfig";
 import { loginRequest, loginSuccess } from "../redux/userAuth/userAuthSlice";
 import Cargando from "../components/Cargando/Cargando";
 
