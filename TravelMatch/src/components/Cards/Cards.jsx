@@ -1,22 +1,67 @@
-import React from 'react'
-import './cards.scss'
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { actionDeleteDestinos } from "../../redux/destinos/destinosActions";
+import Swal from "sweetalert2";
+import "./cards.scss";
 
-function Cards() {
+function Cards({ destino = null }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.userAuth.user);
+
+  const handleDelete = (destinoId) => {
+    Swal.fire({
+      title: "¿Estás seguro que quieres eliminar este destino?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Eliminar",
+      denyButtonText: `No Eliminar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(actionDeleteDestinos(destinoId))
+        Swal.fire("¡Eliminado!", "El destino se ha eliminado exitosamente", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Se ha descartado la acción", "", "info");
+      }
+    });
+  };
+
   return (
-    <div class="card">
-        <img src="https://viajandosinafan.com/wp-content/uploads/2021/11/6-870x555.jpg" alt="Imagen del destino" class="card__image"/>
-        <h2 class="card__title">La ceja</h2>
-        <h3 class="card__subtitle">El Salto del Buey</h3>
-        <p class="card__description">El Salto del Buey es una impresionante cascada situada en la Ceja, un destino ideal para los amantes de la naturaleza y la aventura.</p>
+    <div className="destinoCard">
+      {destino && Object.entries(destino) ? (
+        <div>
+          <img
+            src={destino?.imagen[0]}
+            alt={destino?.nombre}
+            className="destinoCard__image"
+          />
+          <div className="destinoCard__content">
+            <h2 className="destinoCard__title">{destino?.nombreMunicipio}</h2>
+            <h3 className="destinoCard__subtitle">{destino?.nombre}</h3>
+            <p className="destinoCard__description">{destino?.descripcion}</p>
+          </div>
+          <div className="destinoCard__actions">
+            <button
+              className="destinoCard__detailsButton"
+              onClick={() => {
+                console.log("Hice click");
+                navigate(`/Detalle/${destino?.id}`);
+              }}
+            >
+              Ir a detalles
+            </button>
+            {user && (
+              <div>
+                <button className="destinoCard__editButton">Editar</button>
+                <button className="destinoCard__deleteButton" onClick={() => handleDelete(destino.id)}>Eliminar</button>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : null}
     </div>
-    
-  )
-    
-  
-};
+  );
+}
 
-
-
-
-
-export default Cards
+export default Cards;

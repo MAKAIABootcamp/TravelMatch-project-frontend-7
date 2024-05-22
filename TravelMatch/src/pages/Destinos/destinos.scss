@@ -1,0 +1,26 @@
+.contenedor_destinos{
+    height: 85vh;
+    background-color: rgba(7, 135, 143, 0.8);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    .body_destinos{
+        margin-top: 10.5vh;
+        height: 100%;
+        background-color: rgba(225, 245, 245, 0.9);
+        padding-top: 50px;
+        text-align: center;
+        .destinosCards{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            height: auto;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            row-gap: 20px;
+            margin-bottom: 10%;
+        }
+    }
+}

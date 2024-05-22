@@ -1,9 +1,8 @@
-// Layout.js
-
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import NavigationBar from "../header/NavigationBar";
 import Footer from "../Footer/Footer";
+//import HeaderPages from "../header/HeaderDinamic/HeaderPages";
 
 
 function Layout() {
@@ -14,12 +13,7 @@ function Layout() {
     <>
       <NavigationBar/>
       <Outlet/>
-      
-      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
-      {/* {!hideHeaderRoutes.includes(location.pathname) && <header />} 
-      <Outlet />
-      {!hideFooterRoutes.includes(location.pathname) && <Footer />} */}
-       
+      {!hideFooterRoutes.includes(location.pathname) && <Footer />}  
     </>
   );
 }

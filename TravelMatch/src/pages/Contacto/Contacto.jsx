@@ -1,5 +1,3 @@
-// Contacto.js
-
 import React from "react";
 import "./Contacto.scss";
 

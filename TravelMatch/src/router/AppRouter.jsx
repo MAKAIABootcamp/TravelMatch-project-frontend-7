@@ -20,11 +20,9 @@ import Perfil from "../pages/Perfil/Perfil";
 function AppRouter() {
   const { user } = useSelector((store) => store.userAuth);
   const dispatch = useDispatch();
-  // const location = useLocation();
-  // const navigate = useNavigate();
+
 
   useEffect(() => {
-    //const storeRoute = JSON.parse(sessionStorage.getItem("currentRoute"));
     dispatch(loginRequest)
     onAuthStateChanged(auth, (userCredential) => {
       if (userCredential && !user) {
