@@ -49,11 +49,10 @@ function AppRouter() {
 
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="Contacto" element={<Contacto />} />
-          <Route path="Destinos" element={<Destinos />} />
-          <Route path="Detalle" element={<Detalle />} />
+          <Route path="/Contacto" element={<Contacto />} />
+          <Route path="/Destinos" element={<Destinos />} />
+          <Route path="/Detalle/:id" element={<Detalle />} />
           <Route element={<PrivateRoutes />}>
-
             <Route path="Blog/:id" element={<Blog />} />
             <Route path="Test/:id" element={<Test />} />
             <Route path="Home" element={<Home />} />

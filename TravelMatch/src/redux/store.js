@@ -6,9 +6,7 @@ import userAuthReducer from './userAuth/userAuthSlice';
 
 const store = configureStore({
   reducer: {
-    destinos: destinoReducer
-  },
-  reducer: {
+    destinos: destinoReducer,
     userAuth: userAuthReducer
   },
   devTools: process.env.NODE_ENV !== "production",

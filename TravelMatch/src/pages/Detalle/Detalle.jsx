@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { actionGetDestinoById } from "../../redux/destinos/destinosActions";
 import "../Detalle/detalle.scss"
 import ReactDOM from 'react-dom';
@@ -10,6 +11,8 @@ import jardin from "../../assets/Jardin.jpg"
 import { useEffect } from "react";
 
 function Detalle() {
+    const { id } = useParams();
+    console.log("Estamos en detalles", id);
     // const id = '2'; // Reemplaza con el ID de destino real
     // const dispatch = useDispatch();
     // const { destinos, loadingDestinos, errorDestinos } = useSelector((state) => state.destinos);
@@ -221,4 +224,4 @@ function Detalle() {
     )
 }
 
-export default Detalle
+export default Detalle;

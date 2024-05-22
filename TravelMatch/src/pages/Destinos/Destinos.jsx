@@ -1,12 +1,25 @@
-import React from 'react'
-import Cards from"../../components/Cards/Cards"
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { actionGetDestinos } from '../../redux/destinos/destinosActions';
+import Cards from "../../components/Cards/Cards";
+import './destinos.scss';
 
 function Destinos() {
-  
+  const dispatch = useDispatch();
+  const { destinos } = useSelector((store) => store.destinos);
+
+  useEffect(() => {
+    dispatch(actionGetDestinos());
+  }, [dispatch]);
+
+
   return (
-    <Cards/>
-    //<div>Destinos</div>
-  )
+    <div className="destinosCards">
+      {destinos.length
+        ? destinos.map((item) => <Cards key={item.id} destino={item} />)
+        : null}
+    </div>
+  );
 }
 
-export default Destinos
+export default Destinos;

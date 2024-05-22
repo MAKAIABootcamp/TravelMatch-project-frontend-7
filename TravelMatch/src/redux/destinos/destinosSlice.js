@@ -33,11 +33,22 @@ const destinosSlice = createSlice({
             state.destinos = state.destinos.map(d => d.id === destino.id ? destino : d);
             state.loadingDestinos = false;
             state.errorDestinos = null;
+        },
+        deleteDestino: (state, action) => {
+            state.destinos = state.destinos.filter(item => item.id !== action.payload);
+            state.loadingDestinos = false;
+            state.errorDestinos = null;
         }
         //más minifunciones reductoras por tipo de acción
     }
 });
 
-export const { destinosRequest, destinosFail, fillDestinos, destinoByIdSuccess } = destinosSlice.actions; //actions creators
+export const {
+  destinosRequest,
+  destinosFail,
+  fillDestinos,
+  destinoByIdSuccess,
+  deleteDestino,
+} = destinosSlice.actions; //actions creators
 
 export default destinosSlice.reducer;

@@ -12,14 +12,13 @@ function Layout() {
   const hideHeaderRoutes = ["/"]; // Añade aquí las rutas donde quieres ocultar el header
   return (
     <>
-      <NavigationBar/>
-      <Outlet/>
-      
-      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
-      {/* {!hideHeaderRoutes.includes(location.pathname) && <header />} 
+      <NavigationBar />
       <Outlet />
-      {!hideFooterRoutes.includes(location.pathname) && <Footer />} */}
-       
+
+      {/* {!hideFooterRoutes.includes(location.pathname) && <Footer />} */}
+      {/* {!hideHeaderRoutes.includes(location.pathname) && <header />}  
+      <Outlet />*/}
+      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
     </>
   );
 }
