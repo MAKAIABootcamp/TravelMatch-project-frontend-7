@@ -6,7 +6,7 @@ import {
     updateProfile,
   } from "firebase/auth";
   import { loginFail, loginRequest, loginSuccess, logout } from "./userAuthSlice";
-  import { auth } from "../../firebase/firebaseconfig";
+  import { auth, googleProvider } from "../../firebase/firebaseconfig";
   
   export const actionRegisterWithEmailAndPassword = ({
     email,
@@ -76,11 +76,11 @@ import {
     };
   };
   
-  export const actionLoginWithOtherProviders = (provider) => {
+  export const actionLoginWithOtherProviders = () => {
     return async (dispatch) => {
       dispatch(loginRequest());
       try {
-        const userCredencial = await signInWithPopup(auth, provider);
+        const userCredencial = await signInWithPopup(auth, googleProvider);
         const user = userCredencial.user;
         dispatch(
           loginSuccess({

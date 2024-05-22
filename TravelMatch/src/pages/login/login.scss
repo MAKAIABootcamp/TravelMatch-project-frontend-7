@@ -33,9 +33,10 @@
         border: 1px solid var(--primary-color);
         border-radius: 50%;
         width: 200px;
-        height: 40%;
+        height: 200px;
         margin-left: 25%;
         margin-top: 5%;
+        object-fit: cover;
         background-color: rgba(0, 0, 0, 0.3);
         
 
@@ -123,9 +124,6 @@
     .errorText {
       color: #e54c4c;
     }
-
-
-
 
   }
 

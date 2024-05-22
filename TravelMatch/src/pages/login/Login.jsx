@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import imageUser from "../../assets/user_747376.png";
 import imageEmail from "../../assets/email_1159936.png";
 import imagePassword from "../../assets/lock_8472244.png";
-import { actionLoginWithEmailAndPassword } from "../../redux/userAuth/userAuthActions";
+import { actionLoginWithEmailAndPassword, actionLoginWithOtherProviders } from "../../redux/userAuth/userAuthActions";
 //import { loginProviders } from "../../data/loginProviders";
 //import { logout } from "../../redux/userAuth/userAuthSlice";
 
@@ -84,6 +84,7 @@ const Login = () => {
                             >
                                 Registrarse
                             </button>
+                            <button type="button" className="goToRegister" onClick={() => dispatch(actionLoginWithOtherProviders())}>Iniciar con Google</button>
                             {/* {loginProviders.map((item, index) => (
                         <ProvidersLogin
                             key={index}
@@ -94,6 +95,7 @@ const Login = () => {
                         />
                     ))} */}
                         </form>
+                    
                     </div>
                 </div>
 
