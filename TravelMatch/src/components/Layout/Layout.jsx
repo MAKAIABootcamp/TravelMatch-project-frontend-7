@@ -4,6 +4,7 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import NavigationBar from "../header/NavigationBar";
 import Footer from "../Footer/Footer";
+import HeaderPages from "../header/HeaderDinamic/HeaderPages";
 
 
 function Layout() {
@@ -12,7 +13,8 @@ function Layout() {
   const hideHeaderRoutes = ["/"]; // Añade aquí las rutas donde quieres ocultar el header
   return (
     <>
-      <NavigationBar />
+      {/* <NavigationBar /> */}
+      <HeaderPages />
       <Outlet />
 
       {/* {!hideFooterRoutes.includes(location.pathname) && <Footer />} */}

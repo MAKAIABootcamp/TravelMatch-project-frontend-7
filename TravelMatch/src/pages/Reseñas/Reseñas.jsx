@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Reseñas.scss";
 import { collection, doc, getDoc } from "firebase/firestore";
-import { dataBase } from "../../Firebase/firebaseconfig";
+import { dataBase } from "../../firebase/firebaseconfig";
 
 const Reseñas = () => {
   console.log(dataBase);
