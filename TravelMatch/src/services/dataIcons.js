@@ -18,12 +18,16 @@ const icons = [
     },
     {
         "tipo": "cafe",
-        "image": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg",
+        "image": "https://st4.depositphotos.com/11953928/41817/v/1600/depositphotos_418175084-stock-illustration-coffee-moka-pot-pouring-on.jpg",
     },
     {
         "tipo": "flores",
-        "image": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg",
+        "image": "https://static3.depositphotos.com/1003681/164/i/600/depositphotos_1646367-stock-photo-crocus.jpg",
     },
+    {
+        "tipo": "deporte",
+        "image": "https://st5.depositphotos.com/10894906/67738/i/600/depositphotos_677384340-stock-photo-variety-sports-equipment-including-american.jpg"
+    }
 ]
 
 export default icons;
