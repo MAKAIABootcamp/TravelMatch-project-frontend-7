@@ -1,0 +1,202 @@
+:root {
+  --primary-color: #07878f;
+  --secondary-color: #04666d;
+}
+
+.header-container {
+  display: flex;
+  height: 10vh;
+  justify-content: space-between;
+  padding-left: 30px;
+  align-items: center;
+  color: #f0f0f0;
+  z-index: 1;
+}
+
+.transparent-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+
+  .title-header h1 {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+  }
+
+  .title-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+
+}
+
+.solid-header {
+  background-color: white;
+  .user-info {
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+  /* Reemplaza "your-color" con el color sólido deseado */
+}
+
+.logo {
+  width: 54px;
+}
+
+.title-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title-header h1 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 24px;
+}
+
+.title-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  margin-right: 20px;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links .active {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Buttons */
+.btn-container {
+  display: flex;
+  margin-right: 20px;
+  gap: 20px;
+}
+
+.btn-register {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.btn-register:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn-login {
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.btn-login:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  /* Ensure this is set so the dropdown appears below the user info */
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-top: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Ensures no overflow beyond the border-radius */
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+  transition: background 0.3s;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+.btn-register,
+.btn-login {
+  margin-left: 10px;
+}

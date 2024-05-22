@@ -1,88 +1,101 @@
-import { useContext } from "react";
+import React from "react";
 import "./login.scss"
-import useForm from "../../hooks/useForm";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import HeaderDos from "../../components/header/headerDos"
-import Footer from "../../components/Footer/Footer"
+import { useFormik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import * as Yup from "yup";
+import Swal from "sweetalert2";
 
+import imageUser from "../../assets/user_747376.png";
+import imageEmail from "../../assets/email_1159936.png";
+import imagePassword from "../../assets/lock_8472244.png";
+import { actionLoginWithEmailAndPassword } from "../../redux/userAuth/userAuthActions";
+//import { loginProviders } from "../../data/loginProviders";
+//import { logout } from "../../redux/userAuth/userAuthSlice";
 
-const StyledForm = styled.form`
-    display: flex;
-    flex-direction:column;
-    width:60%;
-    gap:15px;
-    div{
-        display:flex;
-        flex-direction:column;
-    }
-`
-const StyledLogin = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:center;
-    height: 80vh;
- `
- const INITIALVALUE = {
-    userName: '',
-    password: ''
-}
 
 const Login = () => {
-    const navigate = useNavigate()
-    const [form, handleChange, reset] = useForm(INITIALVALUE)
-  
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const user = await getUserByEmailAndPassword(form);
-        console.log("este es el user de login" +getUserByEmailAndPassword(form.userName));
-        reset();
-        if (user) {
-            setUser(user)
-            alert(`Bienvenid@ ${form.userName}`)
-            navigate('/home') // recodar enlazar con home
-        } else {
-            alert("Verifique sus credenciales")
-        }
 
-    }
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const formik = useFormik({
+        initialValues: {
+            email: "",
+            password: "",
+        },
+        validationSchema: Yup.object({
+            email: Yup.string()
+                .email("Por ingrese un correo válido")
+                .required("Debe digitar su correo electrónico"),
+            password: Yup.string().required("Debe digitar una contraseña"),
+        }),
+        onSubmit: async (values) => {
+            dispatch(actionLoginWithEmailAndPassword(values));
+            console.log(values)
+        },
+    });
 
+   
     return (
-        <>
-            <HeaderDos />
-            <StyledLogin>
-                <h1>Inicio de sesión</h1>
-                <StyledForm onSubmit={handleSubmit}>
-                    <div>
-                        <label>Nombre de usuario</label>
+        <> 
+            <main className="login">
+                <figure className="login__image">
+                    <img src={imageUser} alt="avatar" />
+                </figure>
+                <form onSubmit={formik.handleSubmit}>
+                    <label
+                        htmlFor="email"
+                        className={formik.touched.email && formik.errors.email ? "error" : ""}
+                    >
+                        <img src={imageEmail} alt="email" />
                         <input
-                            type="text"
-                            name="userName"
-                            id="userName"
-                            placeholder="Usuario"
-                            value={form.userName}
-                            onChange={handleChange}
+                            type="email"
+                            placeholder="ejemplo@email.com"
+                            id="email"
+                            {...formik.getFieldProps("email")}
                         />
-                    </div>
-                    <div>
-                        <label>Contraseña</label>
+                    </label>
+                    {formik.touched.email && formik.errors.email ? (
+                        <div className="errorText">{formik.errors.email}</div>
+                    ) : null}
+                    <label
+                        htmlFor="password"
+                        className={
+                            formik.touched.password && formik.errors.password ? "error" : ""
+                        }
+                    >
+                        <img src={imagePassword} alt="password" />
                         <input
                             type="password"
-                            name="password"
-                            id="password"
                             placeholder="Contraseña"
-                            value={form.password}
-                            onChange={handleChange}
+                            id="password"
+                            {...formik.getFieldProps("password")}
                         />
-                    </div>
-                    <button type="submit">Enviar</button>
-                </StyledForm>
-                <p>¿Aún no tienes una cuenta? {" "}
-                    <Link to={"/register"}>Regístrate ahora </Link>
-                </p>
-            </StyledLogin>
-            <Footer />
+                    </label>
+                    {formik.touched.password && formik.errors.password ? (
+                        <div className="errorText">{formik.errors.password}</div>
+                    ) : null}
+                    <button type="submit">Iniciar Sesión</button>
+                    <button
+                        className="goToRegister"
+                        type="button"
+                        onClick={() => navigate("/register")}
+                    >
+                        Registrarse
+                    </button>
+                    {/* {loginProviders.map((item, index) => (
+                        <ProvidersLogin
+                            key={index}
+                            name={item.name}
+                            image={item.image}
+                            colorButton={item.colorButton}
+                            provider={item.provider}
+                        />
+                    ))} */}
+                </form>
+
+            </main>
+
         </>
     )
 };
