@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 
 function Layout() {
   const location = useLocation();
-  const hideFooterRoutes = ["/Contacto", "/register", "/login"]; // Añade aquí las rutas donde quieres ocultar el footer
+  const hideFooterRoutes = ["/Contacto"]; // Añade aquí las rutas donde quieres ocultar el footer
   const hideHeaderRoutes = ["/"]; // Añade aquí las rutas donde quieres ocultar el header
   return (
     <>

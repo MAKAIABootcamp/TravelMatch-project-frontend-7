@@ -1,7 +1,7 @@
 .header {
     position: fixed;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 1vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,6 +53,12 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    color: white;
+
+    p{
+        margin-right: 50px;
+    }
+
     &__image {
         width: 50px;
         height: 50px;
@@ -67,7 +73,6 @@
             object-position: center;
             border-radius: 50%;
         }
-
     }
     ul{
         position: absolute;

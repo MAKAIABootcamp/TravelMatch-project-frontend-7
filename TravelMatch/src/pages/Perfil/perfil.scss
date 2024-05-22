@@ -1,0 +1,203 @@
+.contenedor_perfil {
+    height: 85vh;
+    background-color: rgba(7, 135, 143, 0.8);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .body_perfil {
+        margin-top: 10.5vh;
+        height: 100%;
+        background-color: rgba(225, 245, 245, 0.9);
+        padding-top: 50px;
+        text-align: center;
+
+        .form_perfil {
+            background-color: rgba(7, 7, 7, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 40vw;
+            height: 65vh;
+            margin-left: 30%;
+            margin-right: 30%;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+            
+            h2 {
+                font-family: var(--tipografia-title);
+                color: white;
+                font-size: 40px;
+            }
+
+            label {
+                display: flex;
+                background-color: #f7f9fa;
+
+                &:focus-within {
+                    border: 2px solid #f7f9fa;
+                }
+            }
+            .llenar_perfil {
+                margin-left: 20%;
+                margin-right: 20%;
+                border: 1px solid var(--primary-color);
+                border-radius: 5px;
+                color:var(--primary-color);
+                img {
+                    margin: 4px;
+                    width: 25px;
+                    height: 25px;
+                    filter: invert(60%) sepia(0%) saturate(1163%) hue-rotate(288deg) brightness(87%) contrast(85%);
+                  }
+                  input {
+                    flex-grow: 1;
+                    border: none;
+                    padding: 5px;
+                    outline: none;
+                    background-color: #9c9fa07e;
+                  }
+            } 
+            .boton_actualizar{
+                margin-left: 20%;
+                margin-right: 20%;
+                height: 40px;
+                border: 1px solid var(--primary-color);
+                border-radius: 5px;
+                color:var(--primary-color);
+                font-family: var(--tipografia-title);
+                font-size: 15px;
+                &:hover {
+                    background-color:  var(--primary-color);
+                    color: #f7f9fa;
+                  }
+            }        
+        }
+
+        .datos_perfil {
+            font-family: var(--tipografia-text);
+            color: rgba(3, 94, 100, 0.77);
+            font-size: 20px;
+            align-self: center;
+
+            p {
+                font-size: 5px;
+            }
+        }
+
+        .register__image {
+            border: 1px solid white;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+                        
+            img {
+                border-radius: 50%;
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor_perfil {
+        .body_perfil {
+            .form_perfil {
+                background-color: rgba(7, 7, 7, 0.2);
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 60vw;
+                height: 65vh;
+                margin-left: 20%;
+                margin-right: 20%;
+                border-radius: 5px;
+                border: 1px solid var(--primary-color);
+                h2 {
+                    font-family: var(--tipografia-title);
+                    color: white;
+                    font-size: 30px;
+                }
+    
+                .llenar_perfil {
+                    margin-left: 20%;
+                    margin-right: 20%;
+                    border: 1px solid var(--primary-color);
+                    border-radius: 5px;
+                    color:var(--primary-color);
+                    img {
+                        margin: 4px;
+                        width: 25px;
+                        height: 25px;
+                        filter: invert(60%) sepia(0%) saturate(1163%) hue-rotate(288deg) brightness(87%) contrast(85%);
+                      }
+                      input {
+                        flex-grow: 1;
+                        border: none;
+                        padding: 5px;
+                        outline: none;
+                       background-color: #9c9fa07e;
+                       width: 100%;
+                      }
+                } 
+                .boton_actualizar{
+                    margin-left: 20%;
+                    margin-right: 20%;
+                    height: 40px;
+                    border: 1px solid var(--primary-color);
+                    border-radius: 5px;
+                    color:var(--primary-color);
+                    font-family: var(--tipografia-title);
+                    font-size: 15px;
+                    &:hover {
+                        background-color:  var(--primary-color);
+                        color: #f7f9fa;
+                      }
+                }        
+            }
+    
+            .datos_perfil {
+                font-family: var(--tipografia-text);
+                color: rgba(3, 94, 100, 0.77);
+                font-size: 20px;
+                align-self: center;
+    
+                p {
+                    font-size: 5px;
+                }
+            }
+    
+            .register__image {
+                border: 1px solid white;
+                border-radius: 50%;
+                width: 200px;
+                height: 200px;
+                            
+                img {
+                    border-radius: 50%;
+                    width: 100%;
+                    object-fit: cover;
+                    height: 100%;
+                }
+            }
+        }
+    }
+   
+
+}
+
+@media (max-width: 480px) {
+    .contenedor_perfil {
+        .body_perfil {
+            .form_perfil {
+                width: 90vw;
+                height: 65vh;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            
+        }
+    }
+}

@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Carro from "../../assets/iconoCarro.png";
 import { actionLogout } from "../../redux/userAuth/userAuthActions";
-// import Perfil from "../../assets/FotoPerfil.jpg"
 import Logo from "../../assets/logoTravel.png"
-// import Salir from "../../assets/salida.png"
 import "../header/NavigationBar.scss";
-
 
 
 const getLinks = (userId = '') => {
@@ -31,10 +27,6 @@ const getLinks = (userId = '') => {
   ]
   if (userId) {
     return ([
-      /* {
-        name: 'Blog',
-        link: `/Blog/${userId}`
-      }, */
       {
         name: 'Test',
         link: `/Test/${userId}`
@@ -58,10 +50,16 @@ export default function NavigationBar() {
   const { user, isAuth } = useSelector(store => store.userAuth);
   const [links, setLinks] = useState([]);
   const [showUserOptions, setShowUserOptions] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLinks(() => getLinks(user?.id))
   }, [user])
+
+  const handleNavigate = (path) => {
+    navigate(path, { state: { user } });
+  };
+
   return (
     <>
       <div className="header">
@@ -76,6 +74,7 @@ export default function NavigationBar() {
           </ul>
           {
             isAuth ? <div className="logOutBtn">
+              <p>{user?.name}</p>
               <button className="logOutBtn__image" onClick={() => setShowUserOptions(!showUserOptions)}>
                 <img src={user?.photo} alt={user?.name} />
               </button>
@@ -84,7 +83,7 @@ export default function NavigationBar() {
                   <ul>
                     <li>
                       <button onClick={() => dispatch(actionLogout())}>Cerrar sesión</button>
-                      <button>Mi perfil</button>
+                      <button onClick={() => handleNavigate('/Perfil')}>Mi perfil</button>
                     </li>
                   </ul> : null
               }

@@ -15,6 +15,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebaseconfig";
 import { loginRequest, loginSuccess } from "../redux/userAuth/userAuthSlice";
 import Cargando from "../components/Cargando/Cargando";
+import Perfil from "../pages/Perfil/Perfil";
 
 function AppRouter() {
   const { user } = useSelector((store) => store.userAuth);
@@ -54,6 +55,7 @@ function AppRouter() {
 
             <Route path="Blog/:id" element={<Blog />} />
             <Route path="Test/:id" element={<Test />} />
+            <Route path="Perfil" element={<Perfil />} />
             <Route path="Home" element={<Home />} />
           </Route>
           <Route element={<PublicRoutes />}>

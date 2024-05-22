@@ -1,87 +1,133 @@
+.contenedor_login {
+  height: 85vh;
+  background-color: rgba(7, 135, 143, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
 
-.login {
-    z-index: 2;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid white;
-    border-radius: 5px;
-    &__image {
-      border: 1px solid white;
-      border-radius: 50%;
-      width: 200px;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
-  
-      img {
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: top;
-        filter: invert(100%) sepia(6%) saturate(55%) hue-rotate(61deg)
-          brightness(113%) contrast(100%);
-      }
-    }
-    form {
+  .body_login {
+    overflow-y: auto;
+    margin-top: 10.5vh;
+    height: 100%;
+    width: 100vw;
+    background-color: rgba(225, 245, 245, 0.9);
+    padding-top: 50px;
+    text-align: center;
+    overflow-x: hidden;
+
+    .login {
+      z-index: 2;
+      background-color: rgba(7, 7, 7, 0.2);
       display: flex;
       flex-direction: column;
       gap: 8px;
-      .error {
-        border: 2px solid #e54c4c;
-      }
-      label {
-        display: flex;
-        background-color: #f7f9fa;
-        &:focus-within {
-          border: 2px solid #f7f9fa;
-        }
-  
+      width: 40vw;
+      height: 60vh;
+      margin-left: 30%;
+      margin-right: 30%;
+      border-radius: 5px;
+      border: 1px solid var(--primary-color);
+
+      &__image {
+        border: 1px solid var(--primary-color);
+        border-radius: 50%;
+        width: 200px;
+        height: 40%;
+        margin-left: 25%;
+        margin-top: 5%;
+        background-color: rgba(0, 0, 0, 0.3);
+        
+
         img {
-          margin: 4px;
-          width: 30px;
-          height: 30px;
-          filter: invert(60%) sepia(0%) saturate(1163%) hue-rotate(288deg)
-            brightness(87%) contrast(85%);
-        }
-        input {
-          flex-grow: 1;
-          border: none;
-          padding: 5px;
-          outline: none;
-          background-color: #9c9fa07e;
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: top;
+          filter: invert(100%) sepia(6%) saturate(55%) hue-rotate(61deg) brightness(113%) contrast(100%);
         }
       }
-      button[type="submit"] {
-        padding: 6px;
-        cursor: pointer;
-        color: #3a6c88;
-        background-color: #f7f9fa;
-        border: 2px solid #f7f9fa;
-        font-weight: 600;
-        &:hover {
-          background-color: transparent;
-          color: #f7f9fa;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 5px;
+       // border: 1px solid var(--primary-color);
+        width: 80%;
+        text-align: center;
+        margin-left: 10%;
+
+        .error {
+          border: 2px solid #e54c4c;
         }
-      }
-      .goToRegister {
-        padding: 6px;
-        cursor: pointer;
-        font-weight: 600;
-        border: 2px solid #f7f9fa;
-        background-color: transparent;
-        color: #f7f9fa;
-        &:hover {
-          color: #3a6c88;
+
+        label {
+          display: flex;
           background-color: #f7f9fa;
+          border-radius: 5px;
+          border: 1px solid var(--primary-color);
+
+          &:focus-within {
+            border: 2px solid #f7f9fa;
+          }
+
+          img {
+            margin: 4px;
+            width: 30px;
+            height: 30px;
+            filter: invert(60%) sepia(0%) saturate(1163%) hue-rotate(288deg) brightness(87%) contrast(85%);
+          }
+
+          input {
+            flex-grow: 1;
+            border: none;
+            padding: 5px;
+            outline: none;
+            background-color: #9c9fa07e;
+            width: 100%;
+          }
+        }
+
+        button[type="submit"] {
+          height: 30px;
+          border: 1px solid var(--primary-color);
+          border-radius: 5px;
+          color: var(--primary-color);
+          font-family: var(--tipografia-title);
+          font-size: 15px;
+
+          &:hover {
+            background-color: var(--primary-color);
+            color: #f7f9fa;
+          }
+        }
+
+        .goToRegister {
+          height: 30px;
+          border: 1px solid var(--primary-color);
+          border-radius: 5px;
+          color: var(--primary-color);
+          font-family: var(--tipografia-title);
+          font-size: 15px;
+
+          &:hover {
+            background-color: var(--primary-color);
+            color: #f7f9fa;
+          }
         }
       }
     }
+
+    .errorText {
+      color: #e54c4c;
+    }
+
+
+
+
   }
-  
-  .errorText {
-    color: #e54c4c;
-  }
+
+
+}

@@ -109,6 +109,7 @@ import {
           loginSuccess({
             id: user.uid,
             name: user.displayName,
+            email: user.email,
             photo: user.photoURL,
             phone: user.phoneNumber,
             accessToken: user.accessToken,
