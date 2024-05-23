@@ -18,7 +18,7 @@ function Layout() {
       {/* {!hideFooterRoutes.includes(location.pathname) && <Footer />} */}
       {/* {!hideHeaderRoutes.includes(location.pathname) && <header />}  
       <Outlet />*/}
-      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
+      {/* {!hideFooterRoutes.includes(location.pathname) && <Footer />} */}
     </>
   );
 }

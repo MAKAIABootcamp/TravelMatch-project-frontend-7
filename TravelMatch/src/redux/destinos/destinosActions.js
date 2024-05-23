@@ -3,6 +3,7 @@ import {
   doc,
   getDoc,
   getDocs,
+  addDoc,
   deleteDoc
 } from "firebase/firestore";
 import {
@@ -11,6 +12,7 @@ import {
   fillDestinos,
   destinoByIdSuccess,
   deleteDestino,
+  addDestino
 } from "./destinosSlice";
 import { dataBase } from "../../firebase/firebaseconfig";
 
@@ -67,3 +69,23 @@ export const actionGetDestinoById = (destinoId) => {
     }
   };
 };
+
+
+
+export const actionsAddDestinos = (nuevoDestino) => {
+  return async (dispatch) => {
+    dispatch(destinosRequest());
+    try {
+       const docRef = addDoc(collectionRef, nuevoDestino);
+       dispatch(
+         addDestino({
+           id: docRef.id,
+           ...nuevoDestino,
+         })
+       );
+    } catch (error) {
+      console.error(error);
+      dispatch(destinosFail(error.message));
+    }
+  }
+}

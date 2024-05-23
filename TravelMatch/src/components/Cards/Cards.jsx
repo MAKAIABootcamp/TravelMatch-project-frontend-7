@@ -49,6 +49,7 @@ function Cards({ destino = null }) {
             Ir a detalles
           </button>
           <button onClick={() => handleDelete(destino.id)}>Eliminar</button>
+          <button>Editar</button>
           {/* {
             user?.role === 'admin' ? <div>
               <button>Editar</button>

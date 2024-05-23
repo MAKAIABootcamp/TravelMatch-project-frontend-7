@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import destinoReducer from './destinos/destinosSlice';
 import userAuthReducer from './userAuth/userAuthSlice';
-// import thunk from "redux-thunk";
-//import todoReducer from "./todo/todoSlice";
+import preguntasReducer from './preguntas/preguntasSlice';
 
 const store = configureStore({
   reducer: {
     destinos: destinoReducer,
-    userAuth: userAuthReducer
+    userAuth: userAuthReducer,
+    preguntas: preguntasReducer
   },
   devTools: process.env.NODE_ENV !== "production",
   // middleware: [thunk],
