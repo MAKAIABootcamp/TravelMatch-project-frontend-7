@@ -430,7 +430,7 @@ const AddDestination = () => {
           <div className="checkbox-container">
             <input
               type="checkbox"
-              name="acompanamiento"
+              name="acompañamiento"
               value="Pareja"
               onChange={handleCheckboxChange}
             />
