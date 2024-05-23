@@ -4,7 +4,8 @@ import "./Result.scss";
 const Result = ({ destino }) => {
   return (
     <div className="result">
-      <h2>{destino.nombre}</h2>
+      <h3>Bienvenido a </h3>
+      <h3>{destino.nombre}</h3>
       <p>{destino.descripcion}</p>
       <p>Municipio: {destino.nombreMunicipio}</p>
       <img src={destino.imagen[0]} alt={destino.nombre} />

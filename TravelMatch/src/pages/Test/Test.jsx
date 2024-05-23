@@ -158,7 +158,10 @@ import { preguntas } from "../../components/Questions/Data/questions";
 import { destinos } from "../../components/Questions/Data/destinations";
 import "./test.scss";
 import SliderComponent from "../../components/Slider/Slider";
+import { useSelector } from "react-redux";
 const Test = () => {
+  const { user, isAuth } = useSelector((store) => store.userAuth);
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [results, setResults] = useState(null);
@@ -210,11 +213,16 @@ const Test = () => {
 
   if (results) {
     return results.length > 0 ? (
-      <div className="results">
-        <h1>Destinos recomendados</h1>
-        {results.map((result) => (
-          <Result key={result.destino.idDestino} destino={result.destino} />
-        ))}
+      <div className="test-background">
+        <div className="results">
+          <div className="portada">
+            <h1 className="results-title">Destinos recomendados</h1>
+            <p>Hola!!, {user.name} el Destino con el que hiciste Match es: </p>
+          </div>
+          {results.map((result) => (
+            <Result key={result.destino.idDestino} destino={result.destino} />
+          ))}
+        </div>
       </div>
     ) : (
       <div className="no-results">
@@ -224,32 +232,35 @@ const Test = () => {
   }
 
   return (
-    <div className="App">
-      <SliderComponent />
-      <h1>Encuentra tu destino ideal</h1>
-      <form className="form-test" onSubmit={handleSubmit}>
-        <Question
-          question={preguntas[currentQuestionIndex]}
-          handleChange={handleChange}
-          currentAnswer={answers[preguntas[currentQuestionIndex].id]}
-        />
-        <div className="navigation-buttons">
-          <button
-            type="button"
-            onClick={handlePrevious}
-            disabled={currentQuestionIndex === 0}
-          >
-            Anterior
-          </button>
-          {currentQuestionIndex < preguntas.length - 1 ? (
-            <button type="button" onClick={handleNext}>
-              Siguiente
+    <div className="test-background">
+      <div className="App">
+        {/*       <SliderComponent />
+         */}{" "}
+        <h1 className="test-title">Encuentra tu destino ideal</h1>
+        <form className="form-test" onSubmit={handleSubmit}>
+          <Question
+            question={preguntas[currentQuestionIndex]}
+            handleChange={handleChange}
+            currentAnswer={answers[preguntas[currentQuestionIndex].id]}
+          />
+          <div className="navigation-buttons">
+            <button
+              type="button"
+              onClick={handlePrevious}
+              disabled={currentQuestionIndex === 0}
+            >
+              Anterior
             </button>
-          ) : (
-            <button type="submit">Enviar</button>
-          )}
-        </div>
-      </form>
+            {currentQuestionIndex < preguntas.length - 1 ? (
+              <button type="button" onClick={handleNext}>
+                Siguiente
+              </button>
+            ) : (
+              <button type="submit">Enviar</button>
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

@@ -96,8 +96,16 @@
   }
 }
  */
+.test-background {
+  background-image: url("../../assets/fondoTest.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+  overflow: hidden;
+}
+
 .App {
-  margin-bottom: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,5 +115,37 @@
     flex-direction: column;
     justify-content: center;
     width: 50%;
+  }
+  .test-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-top: 5%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+}
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  .results-title {
+    font-size: 2.1rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  .portada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+  }
+  .portada p {
+    margin: 10px;
+    font-size: 1.5rem;
   }
 }

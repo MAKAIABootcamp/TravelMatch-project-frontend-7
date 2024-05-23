@@ -5,13 +5,15 @@
   align-items: center;
   margin: 20px 0;
   padding: 20px;
-  border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  margin-top: 2%;
+  overflow: hidden;
 }
 
 .question h2 {
-  font-size: 1.5em;
+  font-size: 1.6em;
   margin-bottom: 15px;
 }
 
