@@ -14,10 +14,10 @@ export default function Footer() {
                     <h1 className="footer_tittle">Travel Match</h1>
                     <nav className="footer_menu_horizontal">
                         <ul className="footer_menu">
-                            <li>Blog</li>
-                            <li>Destinos</li>
-                            <li>Test</li>
-                            <li>Contacto</li>
+                            <li>Francy Rojas</li>
+                            <li>Erika Galvis</li>
+                            <li>Estefania Martinez</li>
+                            <li>Judith Mallama</li>
                         </ul>
                     </nav>
                     <div className="icons">

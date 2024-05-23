@@ -18,7 +18,6 @@ function Cards({ destino = null }) {
       confirmButtonText: "Eliminar",
       denyButtonText: `No Eliminar`,
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         dispatch(actionDeleteDestinos(destinoId))
         Swal.fire("¡Eliminado!", "El destino se ha eliminado exitosamente", "success");
@@ -26,8 +25,8 @@ function Cards({ destino = null }) {
         Swal.fire("Se ha descartado la acción", "", "info");
       }
     });
-    
-  }
+  };
+
   return (
     <div className="destinoCard">
       {destino && Object.entries(destino) ? (
@@ -37,25 +36,28 @@ function Cards({ destino = null }) {
             alt={destino?.nombre}
             className="destinoCard__image"
           />
-          <h2 className="destinoCard__title">{destino?.nombreMunicipio}</h2>
-          <h3 className="destinoCard__subtitle">{destino?.nombre}</h3>
-          <p className="destinoCard__description">{destino?.descripcion}</p>
-          <button
-            onClick={() => {
-              console.log("Hice click");
-              navigate(`/Detalle/${destino?.id}`);
-            }}
-          >
-            Ir a detalles
-          </button>
-          <button onClick={() => handleDelete(destino.id)}>Eliminar</button>
-          <button>Editar</button>
-          {/* {
-            user?.role === 'admin' ? <div>
-              <button>Editar</button>
-              <button onClick={()=>handleDelete(destino.id)}>Eliminar</button>
-            </div>:null
-          } */}
+          <div className="destinoCard__content">
+            <h2 className="destinoCard__title">{destino?.nombreMunicipio}</h2>
+            <h3 className="destinoCard__subtitle">{destino?.nombre}</h3>
+            <p className="destinoCard__description">{destino?.descripcion}</p>
+          </div>
+          <div className="destinoCard__actions">
+            <button
+              className="destinoCard__detailsButton"
+              onClick={() => {
+                console.log("Hice click");
+                navigate(`/Detalle/${destino?.id}`);
+              }}
+            >
+              Ir a detalles
+            </button>
+            {user && (
+              <div>
+                <button className="destinoCard__editButton">Editar</button>
+                <button className="destinoCard__deleteButton" onClick={() => handleDelete(destino.id)}>Eliminar</button>
+              </div>
+            )}
+          </div>
         </div>
       ) : null}
     </div>

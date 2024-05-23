@@ -15,8 +15,9 @@ import PublicRoutes from "./PrivateRoutes";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebaseconfig";
 import { loginRequest, loginSuccess } from "../redux/userAuth/userAuthSlice";
+
 import Cargando from "../components/Cargando/Cargando";
-import DestinosForm from "../pages/DestinosForm/DestinosForm";
+import Reseñas from "../pages/Reseñas/Reseñas";
 
 function AppRouter() {
   const { user } = useSelector((store) => store.userAuth);
@@ -53,7 +54,7 @@ function AppRouter() {
           <Route path="/Contacto" element={<Contacto />} />
           <Route path="/Destinos" element={<Destinos />} />
           <Route path="/Detalle/:id" element={<Detalle />} />
-            <Route path="/Agregar-destino" element={<DestinosForm/> } />
+          <Route path = "reseñas" element={<Reseñas />} />
           <Route element={<PrivateRoutes />}>
             <Route path="Blog/:id" element={<Blog />} />
             <Route path="Test/:id" element={<Test />} />

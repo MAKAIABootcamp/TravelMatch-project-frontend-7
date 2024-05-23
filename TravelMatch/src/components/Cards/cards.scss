@@ -1,38 +1,81 @@
-// Estilos para la tarjeta
 .destinoCard {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    // overflow: hidden;
-    margin-left: 70px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-    &__image {
-      width: 100%;
-      height: 70%; // Ocupa el 70% de la tarjeta
-      object-fit: cover;
-    }
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-left: 70px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
-    &__title, &__subtitle, &__description {
-      padding: 0 16px;
-    }
-  
-    &__title {
-      margin-top: 16px;
-      font-size: 1.5em;
-    }
-  
-    &__subtitle {
-      margin-top: 8px;
-      font-size: 1.2em;
-      color: #666;
-    }
-  
-    &__description {
-      margin-top: 12px;
-      font-size: 1em;
-      color: #333;
-    }
+  &__image {
+    width: 100%;
+    height: 200px; /* Ajusta la altura a tu preferencia */
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   }
-  
-  
+
+  &__content {
+    padding: 16px;
+  }
+
+  &__title {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+
+  &__subtitle {
+    margin-top: 8px;
+    font-size: 1.2em;
+    color: #666;
+  }
+
+  &__description {
+    margin-top: 12px;
+    font-size: 1em;
+    color: #333;
+  }
+
+  &__actions {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ccc;
+  }
+
+  &__detailsButton,
+  &__editButton,
+  &__deleteButton {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  &__detailsButton {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  &__editButton {
+    background-color: #ffc107;
+    color: #333;
+  }
+
+  &__deleteButton {
+    background-color: #dc3545;
+    color: #fff;
+  }
+
+  &__detailsButton:hover,
+  &__editButton:hover,
+  &__deleteButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .destinoCard__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
