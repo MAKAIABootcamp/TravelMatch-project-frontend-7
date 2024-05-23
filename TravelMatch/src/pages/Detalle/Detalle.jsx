@@ -17,14 +17,14 @@ import Maps from "../../components/Maps/Maps.jsx";
 import { GoogleMapsProvider } from "../../components/Maps/MapsProvider.jsx";
 
 function Detalle() {
-  // const { id } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { destinos, loadingDestinos, errorDestinos } = useSelector(
     (store) => store.destinos
   );
 
-  const id = "dyceAAyQSyI60irlc394"; // Reemplaza con el ID de destino real
+//   const id = "dyceAAyQSyI60irlc394"; // Reemplaza con el ID de destino real
   useEffect(() => {
     dispatch(actionGetDestinoById(id));
     console.log("dispatch ", dispatch);
