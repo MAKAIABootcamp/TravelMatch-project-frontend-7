@@ -29,17 +29,8 @@ const destinosSlice = createSlice({
       state.errorDestinos = null;
     },
     destinoByIdSuccess: (state, action) => {
-      const destino = action.payload;
-      state.destinos = state.destinos.map((d) =>
-        d.id === destino.id ? destino : d
-      );
-      state.loadingDestinos = false;
-      state.errorDestinos = null;
-    },
-    deleteDestino: (state, action) => {
-      state.destinos = state.destinos.filter(
-        (item) => item.id !== action.payload
-      );
+      state.destinos = action.payload; // Actualiza los destinos con los datos recibidos
+      console.log("destino slice: ", state.destinos);
       state.loadingDestinos = false;
       state.errorDestinos = null;
     },
