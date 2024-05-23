@@ -23,6 +23,7 @@ export const destinos = [
       tipoDestino: "Campo",
       acompanamiento: ["Familia", "Pareja"],
     },
+
     ubicacion: {
       latitud: "87654",
       longitud: "6543",

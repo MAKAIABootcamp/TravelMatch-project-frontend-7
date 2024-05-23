@@ -151,21 +151,37 @@ function Test() {
 export default Test;
  */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Result from "../../components/Result/Result";
 import Question from "../../components/Questions/Questions";
 import { preguntas } from "../../components/Questions/Data/questions";
-import { destinos } from "../../components/Questions/Data/destinations";
 import "./test.scss";
 import SliderComponent from "../../components/Slider/Slider";
 import { useSelector } from "react-redux";
+import { dataBase } from "../../firebase/firebaseconfig";
+import { collection, getDocs } from "firebase/firestore";
 const Test = () => {
   const { user, isAuth } = useSelector((store) => store.userAuth);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [results, setResults] = useState(null);
-
+  const [destinos, setDestinos] = useState([]);
+  const obtenerDestinos = async () => {
+    const querySnapshot = await getDocs(collection(dataBase, "destinos"));
+    const destinos = [];
+    querySnapshot.forEach((doc) => {
+      destinos.push({
+        id: doc.id,
+        ...doc.data(),
+      });
+    });
+    setDestinos(destinos);
+  };
+  useEffect(() => {
+    obtenerDestinos();
+  }, []);
+  console.log(destinos);
   const handleChange = (id, value) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
@@ -184,7 +200,6 @@ const Test = () => {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const scores = destinos.map((destino) => {
@@ -194,7 +209,7 @@ const Test = () => {
       if (categorias.clima === answers[1]) score++;
       if (categorias.motivo.includes(answers[2])) score++;
       if (categorias.tipoDestino === answers[4]) score++;
-      if (categorias.acompanamiento.includes(answers[3])) score++;
+      if (categorias.acompañamiento.includes(answers[3])) score++;
       if (categorias.interesViaje.some((i) => answers[5].includes(i))) score++;
       if (categorias.actividades.some((act) => answers[6].includes(act)))
         score++;
@@ -213,12 +228,12 @@ const Test = () => {
 
   if (results) {
     return results.length > 0 ? (
-      <div className="test-background">
+      <div className="test-background results-container">
+        <div className="portada">
+          <h1 className="results-title">Destinos recomendados</h1>
+          <p>Hola!!, {user.name} el Destino con el que hiciste Match es: </p>
+        </div>
         <div className="results">
-          <div className="portada">
-            <h1 className="results-title">Destinos recomendados</h1>
-            <p>Hola!!, {user.name} el Destino con el que hiciste Match es: </p>
-          </div>
           {results.map((result) => (
             <Result key={result.destino.idDestino} destino={result.destino} />
           ))}
