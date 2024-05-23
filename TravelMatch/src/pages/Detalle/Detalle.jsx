@@ -2,13 +2,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionGetDestinoById, actionGetDestinos } from "../../redux/destinos/destinosActions";
 import "../Detalle/detalle.scss";
 import dataIcons from "../../services/dataIcons.js";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Vector from "../../assets/more_than.png";
-import jardin from "../../assets/Jardin.jpg";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Maps from "../../components/Maps/Maps.jsx";
+import { GoogleMapsProvider } from "../../components/Maps/MapsProvider.jsx";
 
 function Detalle() {
     // const { id } = useParams();
@@ -16,23 +19,23 @@ function Detalle() {
     const dispatch = useDispatch();
     const { destinos, loadingDestinos, errorDestinos } = useSelector((store) => store.destinos);
 
-    const id = '4'; // Reemplaza con el ID de destino real
+    const id = 'dyceAAyQSyI60irlc394'; // Reemplaza con el ID de destino real
     useEffect(() => {
         dispatch(actionGetDestinoById(id));
+        console.log("dispatch ", dispatch)
     }, [dispatch, id]);
 
-    useEffect(() => {
-        dispatch(actionGetDestinos());
-    }, [dispatch]);
 
     if (loadingDestinos) return <p>Cargando...</p>;
     if (errorDestinos) return <p>Error: {errorDestinos}</p>;
 
-    const destino = destinos.find(d => d.idDestino === id);
-    const title = destino ? destino.nombre : "";
-    const description = destino ? destino.descripcion : "";
-    const imagenes = destino ? destino.imagen : [];
-    const charact = destino ? destino.caracteristicas : [];
+    const title = destinos && destinos.nombre ? destinos.nombre : "";
+    const description = destinos && destinos.descripcion ? destinos.descripcion : "";
+    const imagenes = destinos && destinos.imagen ? destinos.imagen : [];
+    const charact = destinos && destinos.caracteristicas ? destinos.caracteristicas : [];
+    
+    console.log("imagenes: ",charact)
+
 
     const settings = {
         dots: true,
@@ -58,15 +61,23 @@ function Detalle() {
                 {/* ---------------------- */}
                 <div className="container">
                     <div className="container_detalle">
-                        <div className="container_present">
-                            {/* <Slider {...settings}>
-                                {img.map((image, index) => (
+                        {/* <div className="container_present">
+                            <Slider {...settings}>
+                                {imagenes.map((image, index) => (
                                     <div className="container_present_div" key={index}>
                                         <img className="container_present_div_img" src={image} alt={`Imagen ${index + 1}`} />
                                     </div>
                                 ))}
-                            </Slider> */}
-                        </div>
+                            </Slider>
+                            
+                            {/* <Carousel autoPlay infiniteLoop>
+                                {imagenes.map((image, index) => (
+                                    <div className="container_present_div" key={index}>
+                                        <img className="container_present_div_img" src={image} alt={`Imagen ${index + 1}`} />
+                                    </div>
+                                ))}
+                            </Carousel> 
+                        </div> */}
                         <p className="text">{description}</p>
                         <span className="text">Aquí tienes algunas cosas que podrías disfrutar al visitar {title}:</span>
                         <div className="grid">
@@ -94,13 +105,12 @@ function Detalle() {
                         </div>
                     </button>
                 </div>
-                <div>
-
+                <div className="section_map">
+                    <GoogleMapsProvider>
+                        <Maps lat={-34.397} lng={150.644} />
+                    </GoogleMapsProvider>
                 </div>
             </div>
-
-
-
         </>
     )
 }

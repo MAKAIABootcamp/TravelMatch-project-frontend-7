@@ -6,27 +6,28 @@ const icons = [
     },
     {
         "tipo": "arquitectura",
-        "image": "https://previews.123rf.com/images/yupiramos/yupiramos1708/yupiramos170811785/83813511-ilustraci%C3%B3n-de-vector-de-icono-de-casa-de-dibujos-animados.jpg",
+        "image": "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/svg/1f3e0.svg",
+
     },
     {
         "tipo": "naturaleza",
-        "image": "https://thumbs.dreamstime.com/z/silueta-de-bosque-pinos-monta%C3%B1a-pino-paisaje-las-monta%C3%B1as-226143093.jpg?ct=jpeg",
+        "image": "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/1024px/1f332.png",
     },
     {
         "tipo": "gastronomia",
-        "image": "https://static3.depositphotos.com/1006938/223/v/450/depositphotos_2232499-stock-illustration-plateful-fork-spoon-and-knife.jpg",
+        "image": "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/svg/1f37d.svg",
     },
     {
         "tipo": "cafe",
-        "image": "https://st4.depositphotos.com/11953928/41817/v/1600/depositphotos_418175084-stock-illustration-coffee-moka-pot-pouring-on.jpg",
+        "image": "https://images.emojiterra.com/google/android-11/512px/2615.png",
     },
     {
         "tipo": "flores",
-        "image": "https://static3.depositphotos.com/1003681/164/i/600/depositphotos_1646367-stock-photo-crocus.jpg",
+        "image": "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/svg/1f338.svg",
     },
     {
         "tipo": "deporte",
-        "image": "https://st5.depositphotos.com/10894906/67738/i/600/depositphotos_677384340-stock-photo-variety-sports-equipment-including-american.jpg"
+        "image": "https://images.emojiterra.com/twitter/v14.0/1024px/1f938-2642.png"
     }
 ]
 

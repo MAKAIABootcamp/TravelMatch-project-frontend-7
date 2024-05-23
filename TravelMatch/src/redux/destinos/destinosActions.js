@@ -25,19 +25,26 @@ export const actionGetDestinos = () => {
         }
     }
 }
+
 export const actionGetDestinoById = (destinoId) => {
     return async (dispatch) => {
-        dispatch(destinosRequest());
+        dispatch(destinosRequest()); // Indicar que se está realizando la solicitud
+
         try {
-            const destinoDoc = await getDoc(doc(collectionRef, destinoId));
+            console.log("ID del destino:", destinoId); // Agregar un registro de consola para verificar el ID del destino
+
+            const destinoDoc = await getDoc(doc(collectionRef, destinoId)); // Obtener el documento del destino por su ID
+
             if (destinoDoc.exists()) {
                 dispatch(destinoByIdSuccess({ id: destinoDoc.id, ...destinoDoc.data() }));
+                console.log("Datos del destino:", destinoDoc.data()); 
             } else {
-                dispatch(destinosFail("Destino no encontrado"));
+                console.log("Destino no encontrado");
+                dispatch(destinosFail("Destino no encontrado")); 
             }
         } catch (error) {
-            console.error(error);
-            dispatch(destinosFail(error.message));
+            console.error("Error al obtener el destino:", error);
+            dispatch(destinosFail(error.message)); 
         }
     };
 };
