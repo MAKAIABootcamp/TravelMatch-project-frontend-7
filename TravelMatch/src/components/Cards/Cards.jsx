@@ -19,8 +19,12 @@ function Cards({ destino = null }) {
       denyButtonText: `No Eliminar`,
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(actionDeleteDestinos(destinoId))
-        Swal.fire("¡Eliminado!", "El destino se ha eliminado exitosamente", "success");
+        dispatch(actionDeleteDestinos(destinoId));
+        Swal.fire(
+          "¡Eliminado!",
+          "El destino se ha eliminado exitosamente",
+          "success"
+        );
       } else if (result.isDenied) {
         Swal.fire("Se ha descartado la acción", "", "info");
       }
@@ -54,7 +58,12 @@ function Cards({ destino = null }) {
             {user && (
               <div>
                 <button className="destinoCard__editButton">Editar</button>
-                <button className="destinoCard__deleteButton" onClick={() => handleDelete(destino.id)}>Eliminar</button>
+                <button
+                  className="destinoCard__deleteButton"
+                  onClick={() => handleDelete(destino.id)}
+                >
+                  Eliminar
+                </button>
               </div>
             )}
           </div>

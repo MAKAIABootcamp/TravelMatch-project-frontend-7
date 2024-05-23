@@ -1,9 +1,19 @@
+:root {
+  --primary-color: #07878f;
+  --secondary-color: #04666d;
+  --third-color: #06afbb;
+  --background-color: #ffffff;
+  --text-color: #ffffff;
+  --form-background-color: #fff;
+  --button-color: #07878f;
+}
+
 .destinoCard {
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-left: 70px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
+
   &__image {
     width: 100%;
     height: 200px; /* Ajusta la altura a tu preferencia */
@@ -54,17 +64,18 @@
   }
 
   &__detailsButton {
-    background-color: #007bff;
+    background-color: var(--button-color);
     color: #fff;
   }
 
   &__editButton {
-    background-color: #ffc107;
-    color: #333;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    margin-right: 10px;
   }
 
   &__deleteButton {
-    background-color: #dc3545;
+    background-color: var(--third-color);
     color: #fff;
   }
 
@@ -78,4 +89,10 @@
     justify-content: space-between;
     align-items: center;
   }
+}
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: var(--primary-color);
 }
