@@ -115,7 +115,7 @@ function Detalle() {
             className="section_button_reseñas"
             onClick={() => {
               console.log("Hice click");
-              navigate(`/Reseñas/${destino?.id}`);
+              navigate(`/Reseñas`);
             }}
           >
             <div className="section_button_reseñas_container">
