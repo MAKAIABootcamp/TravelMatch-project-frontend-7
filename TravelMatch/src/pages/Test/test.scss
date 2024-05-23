@@ -1,4 +1,4 @@
-.profile-test-container {
+/* .profile-test-container {
   
   background-image: url("../../assets/fondoTest.jpeg");
   background-size: cover;
@@ -52,5 +52,60 @@
         font-size: 1rem;
       }
     }
+  }
+}
+ */
+/* .App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .navigation-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 200px;
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+
+        &:disabled {
+          background-color: #cccccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+ */
+.App {
+  margin-bottom: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .form-test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
   }
 }

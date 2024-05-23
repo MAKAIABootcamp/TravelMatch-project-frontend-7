@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+/* import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import ButtonTest from "../../components/ProfileTest/ButtonTest";
 import fondo from "../../assets/fondoTest.jpeg";
@@ -122,30 +122,136 @@ function Test() {
   const botonSiguiente = () => {
     sliderRef.slickNext();
   };
-
+  console.log(" preguntas", preguntas);
   return (
     // <div className="center-slider">
-      <Slider
-        ref={(slider) => {
-          sliderRef = slider;
-        }}
-        {...settings}
-        className="profile-test-container"
-      >
-        {preguntas.map((item,index) => (
-          <SquareTest
-            key={item.id}
-            title={item.title}
-            option={item.respuestas}
-            currentIndex={index +1} 
-            TotalPreguntas={preguntas.length}
-            type={item.type}
-            onClick={botonSiguiente}
-          />
-        ))}
-      </Slider>
+    <Slider
+      ref={(slider) => {
+        sliderRef = slider;
+      }}
+      {...settings}
+      className="profile-test-container"
+    >
+      {preguntas.map((item, index) => (
+        <SquareTest
+          key={item.id}
+          title={item.title}
+          option={item.respuestas}
+          currentIndex={index + 1}
+          TotalPreguntas={preguntas.length}
+          type={item.type}
+          onClick={botonSiguiente}
+        />
+      ))}
+    </Slider>
     // </div>
   );
 }
+
+export default Test;
+ */
+
+import React, { useState } from "react";
+import Result from "../../components/Result/Result";
+import Question from "../../components/Questions/Questions";
+import { preguntas } from "../../components/Questions/Data/questions";
+import { destinos } from "../../components/Questions/Data/destinations";
+import "./test.scss";
+import SliderComponent from "../../components/Slider/Slider";
+const Test = () => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState({});
+  const [results, setResults] = useState(null);
+
+  const handleChange = (id, value) => {
+    setAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [id]: value,
+    }));
+  };
+
+  const handleNext = () => {
+    if (currentQuestionIndex < preguntas.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const scores = destinos.map((destino) => {
+      const categorias = destino.categorias;
+      let score = 0;
+
+      if (categorias.clima === answers[1]) score++;
+      if (categorias.motivo.includes(answers[2])) score++;
+      if (categorias.tipoDestino === answers[4]) score++;
+      if (categorias.acompanamiento.includes(answers[3])) score++;
+      if (categorias.interesViaje.some((i) => answers[5].includes(i))) score++;
+      if (categorias.actividades.some((act) => answers[6].includes(act)))
+        score++;
+      if (categorias.emociones.includes(answers[8])) score++;
+
+      return { destino, score };
+    });
+
+    const maxScore = Math.max(...scores.map((s) => s.score));
+    const matchingDestinations = scores.filter(
+      (s) => s.score === maxScore && s.score > 0
+    );
+
+    setResults(matchingDestinations.length > 0 ? matchingDestinations : null);
+  };
+
+  if (results) {
+    return results.length > 0 ? (
+      <div className="results">
+        <h1>Destinos recomendados</h1>
+        {results.map((result) => (
+          <Result key={result.destino.idDestino} destino={result.destino} />
+        ))}
+      </div>
+    ) : (
+      <div className="no-results">
+        <h1>No se encontraron destinos</h1>
+      </div>
+    );
+  }
+
+  return (
+    <div className="App">
+      <SliderComponent />
+      <h1>Encuentra tu destino ideal</h1>
+      <form className="form-test" onSubmit={handleSubmit}>
+        <Question
+          question={preguntas[currentQuestionIndex]}
+          handleChange={handleChange}
+          currentAnswer={answers[preguntas[currentQuestionIndex].id]}
+        />
+        <div className="navigation-buttons">
+          <button
+            type="button"
+            onClick={handlePrevious}
+            disabled={currentQuestionIndex === 0}
+          >
+            Anterior
+          </button>
+          {currentQuestionIndex < preguntas.length - 1 ? (
+            <button type="button" onClick={handleNext}>
+              Siguiente
+            </button>
+          ) : (
+            <button type="submit">Enviar</button>
+          )}
+        </div>
+      </form>
+    </div>
+  );
+};
 
 export default Test;

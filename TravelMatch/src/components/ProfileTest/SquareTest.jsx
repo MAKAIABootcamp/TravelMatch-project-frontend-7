@@ -2,16 +2,26 @@ import React, { useState } from "react";
 import ButtonTest from "./ButtonTest";
 import "./SquareTest.scss";
 
-const SquareTest = ({ title, option, onClick, currentIndex, TotalPreguntas,type }) => {
+const SquareTest = ({
+  title,
+  option,
+  onClick,
+  currentIndex,
+  TotalPreguntas,
+  type,
+}) => {
   const respuestas = Object.entries(option);
-  const [selectedOption, setSelectedOption] = useState(type === "radio" ? null : []);
-  const handleChange = (index) => {
+  const [selectedOption, setSelectedOption] = useState(
+    type === "radio" ? null : []
+  );
+  const handleChange = (index, item, title) => {
+    console.log("Item: ", item, title);
     if (type === "radio") {
       setSelectedOption(index);
     } else if (type === "checkbox") {
-      setSelectedOption(prevState =>
-        prevState.includes(index) 
-          ? prevState.filter(i => i !== index) 
+      setSelectedOption((prevState) =>
+        prevState.includes(index)
+          ? prevState.filter((i) => i !== index)
           : [...prevState, index]
       );
     }
@@ -27,8 +37,12 @@ const SquareTest = ({ title, option, onClick, currentIndex, TotalPreguntas,type 
               className="askBox__input"
               type={type}
               name={`option-${currentIndex}`}
-              checked={type === "radio" ? selectedOption === index : selectedOption.includes(index)}
-              onChange={() => handleChange(index)}
+              checked={
+                type === "radio"
+                  ? selectedOption === index
+                  : selectedOption.includes(index)
+              }
+              onChange={() => handleChange(index, item, title)}
             />
             {`${item[0]}: ${item[1]}`}
           </label>
@@ -40,7 +54,9 @@ const SquareTest = ({ title, option, onClick, currentIndex, TotalPreguntas,type 
         <ButtonTest test="Siguiente" onClick={onClick} />
       )}
       <div className="askBox__counter_container">
-        <h4 className="askBox__counter">{currentIndex}/{TotalPreguntas}</h4>
+        <h4 className="askBox__counter">
+          {currentIndex}/{TotalPreguntas}
+        </h4>
       </div>
     </div>
   );
