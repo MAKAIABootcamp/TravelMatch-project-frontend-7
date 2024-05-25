@@ -2,7 +2,7 @@
 
 <p>El objetivo principal de TravelMatch es proporcionar una plataforma personalizada que permita a los usuarios descubrir y planificar sus viajes ideales basados en sus características y preferencias personales. Mediante un test de personalidad, la aplicación recomienda destinos que se alinean con la personalidad de cada usuario, ofreciendo una experiencia de viaje única y a medida.</p>
 
-<h1 align="center">  https://travel-match.vercel.app/Contacto  </h1>
+<h1 align="center">  https://travel-match.vercel.app  </h1>
 
 <h2> Implementación de Firebase: </h2>
 <p>-Proveedores de autenticación (Correo electrónico y Contraseña).<br>
