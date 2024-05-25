@@ -9,7 +9,7 @@ function Cards({ destino = null }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.userAuth.user);
-
+console.log("destino", destino);
   const handleDelete = (destinoId) => {
     Swal.fire({
       title: "¿Estás seguro que quieres eliminar este destino?",

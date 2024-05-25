@@ -11,7 +11,7 @@ const Result = ({ destino }) => {
       <img src={destino.imagen[0]} alt={destino.nombre} />
       <button
         className="ver-mas-button"
-        onClick={() => (window.location.href = `/detalle/${destino.idDestino}`)}
+        onClick={() => (window.location.href = `/detalle/${destino.id}`)}
       >
         Ver más
       </button>
